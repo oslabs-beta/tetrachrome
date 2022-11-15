@@ -1,11 +1,10 @@
 import React from 'react';
 
-function TopNav () {
+function GettingStarted () {
   return (
     <>
-      
     </>
   );
 }
 
-export default TopNav;
+export default GettingStarted;

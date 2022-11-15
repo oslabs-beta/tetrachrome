@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  font-family: $bodyFont;
+}
+
+#sideNav {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  float: left;
+  width: 10%;
+  height: 100%;
+  background-color: black;
+}
+
+#topNav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 50px;
+  padding-right: 35px;
+  background-color: black;
+}
+
+#topNav ul li {
+  list-style: none;
+  display: inline-block;
+  padding-right: 15px;
+}
+
+.navButton a {
+  padding: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+#container {
+  width: 90%;
+  float: right;
+}
