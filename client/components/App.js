@@ -13,9 +13,8 @@ import Docs from "./Docs";
 function App() {
   return (
     <>
-      {/* <TopNav /> */}
       <Nav />
-      <div id="container">
+      <div id="main-container">
         <Routes>
           <Route path="/" element={<MainContainer />} />
           <Route path="/frontend" element={<FrontendContainer />} />

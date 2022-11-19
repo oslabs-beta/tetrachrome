@@ -4,13 +4,24 @@
 }
 
 #sideNav {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   position: absolute;
   float: left;
-  width: 10%;
+  min-width: 15vw;
   height: 100%;
   background-color: black;
+}
+
+#sideNav ul {
+  padding: 0;
+}
+
+#sideNav ul li {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin: 0;
 }
 
 #topNav {
@@ -35,7 +46,7 @@
   color: white;
 }
 
-#container {
-  width: 90%;
+#main-container {
+  width: 85vw;
   float: right;
 }
