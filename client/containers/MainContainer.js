@@ -1,26 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-function MainContainer() {
-
-const getElementsHandler = () => {
-  const frameObj = document.getElementById('app-frame');
-  // console.log(frameObj);
-  const frameContent = frameObj.contentWindow.document.body.innerHMTL;
-  console.log('frame content: ' + frameContent);
-}
+function MainContainer({ frame }) {
+  // const getElementsHandler = () => {
+  //   console.log(frame);
+  //   const frameContent = frameObj.contentWindow.document.body.innerHMTL;
+  //   // console.log('frame content: ' + frameContent);
+  // }
 
   return (
-    <div>
+    <>
       <h1>Loading Page</h1>
-    <iframe
-    id="app-frame"
-    src='http://localhost:8080'
-    width="100%"
-    height="500px"
-    ></iframe>
-    <button type="button" onClick={getElementsHandler}>Get Elements</button>
-     </div>
+      <iframe id="app-frame"
+        src='http://localhost:8080'
+        width="100%"
+        height="500px"
+        sandbox="allow-same-origin allow-scripts"
+      />
+      {/* <button type="button" onClick={getElementsHandler}>Get Elements</button> */}
+    </>
   );
 }
 
