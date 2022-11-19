@@ -1,20 +1,20 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 
 const app = express();
 const PORT = 4000;
 
 app.use(express.json());
 app.use(cors());
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      'frame-src': 'http://localhost:3000',
-    },
-  })
-);
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     directives: {
+//       'frame-src': 'http://localhost:3000',
+//     },
+//   })
+// );
 
 // serve index.html
 app.use('/', express.static(path.join(__dirname, '../client/')));
