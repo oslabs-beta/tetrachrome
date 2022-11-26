@@ -25,7 +25,7 @@ function App() {
       <Nav />
       <div id="main-container">
         <Routes>
-          <Route path="/" element={<MainContainer frame={frame} />} />
+          <Route path="/" element={<MainContainer />} />
           <Route path="/frontend" element={<FrontendContainer frame={frame} />} />
           <Route path="/backend" element={<BackendContainer />} />
           <Route path="/metrics" element={<MetricsContainer />} />

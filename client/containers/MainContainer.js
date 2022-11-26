@@ -16,6 +16,11 @@ function MainContainer({ frame }) {
         height="500px"
         sandbox="allow-same-origin allow-scripts"
       />
+      {/* <object id="app-frame"
+        data='http://localhost:8080'
+        width="100%"
+        height="500px"
+      /> */}
       {/* <button type="button" onClick={getElementsHandler}>Get Elements</button> */}
     </>
   );
