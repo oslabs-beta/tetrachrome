@@ -1,54 +1,51 @@
 import React from 'react';
+import Tree from 'react-d3-tree';
 
 const FrontendContainer = ({ frame }) => {
-  console.log('FE frame --> ', frame);
+  // get document of app-frame
   const frameContent = frame.contentWindow.document;
-  console.log('FE frame content --> ', frameContent);
-
-  // find all nodes in app
+  // find all nodes in within document body of app-frame
   const allNodes = frameContent.querySelectorAll('*');
-  console.log('FE allNodes --> ', allNodes);
   // traverse allNodes to find the root node
   let rootNode;
+  let tree = {
+    name:'',
+    children: []
+  };
   allNodes.forEach(node => {
     if (node._reactRootContainer) rootNode = node._reactRootContainer._internalRoot.current;
   });
-
-  const beginWork = (fiber) => {
-    console.log(`${fiber.type} start`)
-  }
-
-  const completeUnitWork = (fiber) => {
-    console.log(`${fiber.type} end`)
-  }
-
+  console.log('root node --> ', rootNode);
+  
+  
+  // track + perform work on fiber node
   const performUnitOfWork = (fiber) => {
-    if (fiber.type !== null) beginWork(fiber)
+    if (fiber.type !== null) console.log(`${fiber.type} start`);
     if (fiber.child) {
-      return fiber.child
+      return fiber.child;
     }
     while (fiber) {
-      if (fiber.type !== null) completeUnitWork(fiber)
+      if (fiber.type !== null) console.log(`${fiber.type} end`);
       if (fiber.sibling) {
-        return fiber.sibling
+        return fiber.sibling;
       }
-      fiber = fiber.return
+      fiber = fiber.return;
     }
   }
-
-  const traverse = (nextUnitOfWork) => {
-    while (nextUnitOfWork) {
-      nextUnitOfWork = performUnitOfWork(nextUnitOfWork)
+  // traverse component tree
+  const traverse = (nextNode) => {
+    while (nextNode) {
+      nextNode = performUnitOfWork(nextNode);
     }
-    if (!nextUnitOfWork) {
-      console.log('End of traversal')
+    if (!nextNode) {
+      console.log('End of traversal');
     }
   }
 
   return (
-    <>  
-
-    </>
+    <div id="tree-wrapper">
+      <Tree data={rootNode} />
+    </div>
   );
 }
 
