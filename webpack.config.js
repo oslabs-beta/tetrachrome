@@ -38,11 +38,13 @@ module.exports = {
   ],
   
   devServer: {
+    host: 'localhost',
+    port: 5000,
     static: {
       directory: path.resolve(__dirname, './build')
     },
     proxy: {
-      '/': 'http://localhost:3000',
+      '/': 'http://localhost:5000',
     }
   },
 };

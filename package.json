@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server/server.js & webpack-dev-server --open"
+    "dev": "nodemon server/server.js & webpack-dev-server --open",
+    "open": "open -na \"Google Chrome\" http://localhost:5000 --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security --disable-site-isolation-trials"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/oslabs-beta/blueprint#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "css-loader": "^6.7.2",
     "express": "^4.18.2",
     "postcss": "^8.4.19",
