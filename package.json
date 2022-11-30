@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server/server.js & webpack-dev-server --open",
-    "open": "open -na \"Google Chrome\" http://localhost:5000 --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security --disable-site-isolation-trials"
+    "open": "open -na \"Google Chrome\" http://localhost:5000 --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security --disable-site-isolation-trials",
+    "prod": "nodemon server/server.js & webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "postcss": "^8.4.19",
     "postcss-loader": "^7.0.1",
     "react": "^18.2.0",
+    "react-d3-tree": "^3.3.5",
     "react-dom": "^18.2.0",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
