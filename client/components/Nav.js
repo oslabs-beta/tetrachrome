@@ -30,6 +30,9 @@ function Nav() {
           <li className="navButton">
             <Link to="/blueprint/metrics">Metrics</Link>
           </li>
+          <li className="navButton">
+            <Link to="/">Your App</Link>
+          </li>
         </ul>
       </div>
     </>

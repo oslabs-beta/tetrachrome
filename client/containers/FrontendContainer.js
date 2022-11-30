@@ -10,8 +10,8 @@ const FrontendContainer = ({ frame }) => {
   // };
 
   // find all nodes in within document body of app-frame
-  // const allNodes = frameContent.querySelectorAll('*');
-  const allNodes = document.querySelectorAll('*');
+  const allNodes = frameContent.querySelectorAll('*');
+  // const allNodes = document.querySelectorAll('*');
 
   // traverse allNodes to find the root node
   let rootNode;
