@@ -44,7 +44,7 @@ module.exports = {
       directory: path.resolve(__dirname, './build')
     },
     proxy: {
-      '/': 'http://localhost:5000',
+      '/blueprint/**': 'http://localhost:5000',
     }
   },
 };

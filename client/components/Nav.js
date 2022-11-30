@@ -9,26 +9,26 @@ function Nav() {
         {/* add LOGO here */}
         <ul>
           <li className="navButton">
-            <Link to="/gettingstarted">Getting Started</Link>
+            <Link to="/blueprint/gettingstarted">Getting Started</Link>
           </li>
           <li className="navButton">
-            <Link to="/docs">Docs</Link>
+            <Link to="/blueprint/docs">Docs</Link>
           </li>
         </ul>
       </div>
       <div id="sideNav">
         <ul>
           <li className="navButton">
-            <Link to="/">Home</Link>
+            <Link to="/blueprint">Home</Link>
           </li>
           <li className="navButton">
-            <Link to="/frontend">Frontend</Link>
+            <Link to="/blueprint/frontend">Frontend</Link>
           </li>
           <li className="navButton">
-            <Link to="/backend">Backend</Link>
+            <Link to="/blueprint/backend">Backend</Link>
           </li>
           <li className="navButton">
-            <Link to="/metrics">Metrics</Link>
+            <Link to="/blueprint/metrics">Metrics</Link>
           </li>
         </ul>
       </div>
