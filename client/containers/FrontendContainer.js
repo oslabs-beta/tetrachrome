@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 const FrontendContainer = ({ frame }) => {
-  console.log('inside FrontendContainer');
-
-  const [tree, setTree] = useState({});
-
   // get document of app-frame
   const frameContent = frame.contentWindow.document;
+  // let tree = {
+  //   name:'',
+  //   children: []
+  // };
+
   // find all nodes in within document body of app-frame
   const allNodes = frameContent.querySelectorAll('*');
   // traverse allNodes to find the root node

@@ -19,7 +19,7 @@ function Nav() {
       <div id="sideNav">
         <ul>
           <li className="navButton">
-            <Link to="/blueprint">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li className="navButton">
             <Link to="/blueprint/frontend">Frontend</Link>
