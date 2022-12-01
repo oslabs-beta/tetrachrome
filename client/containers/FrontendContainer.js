@@ -1,9 +1,10 @@
 import React from 'react';
-import Tree from 'react-d3-tree';
 
 const FrontendContainer = ({ frame }) => {
+  console.log('inside FrontendContainer');
   // get document of app-frame
   const frameContent = frame.contentWindow.document;
+  // console.log('framecontent in the frontend container', frameContent);
   // let tree = {
   //   name:'',
   //   children: []
@@ -49,8 +50,8 @@ const FrontendContainer = ({ frame }) => {
   }
 
   return (
-    <div id="tree-wrapper">
-      <Tree data={rootNode} />
+    <div style={{ borderColor: 'red' }}>
+      <h1>hello</h1>
     </div>
   );
 }

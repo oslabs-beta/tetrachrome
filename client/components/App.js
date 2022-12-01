@@ -25,12 +25,12 @@ function App() {
       <Nav />
       <div id="main-container">
         <Routes>
-          <Route path="/" element={<MainContainer />} />
-          <Route path="/frontend" element={<FrontendContainer frame={frame} />} />
-          <Route path="/backend" element={<BackendContainer />} />
-          <Route path="/metrics" element={<MetricsContainer />} />
-          <Route path="/gettingstarted" element={<GettingStarted />} />
-          <Route path="/docs" element={<Docs />} />
+          <Route path="/blueprint" element={<MainContainer />} />
+          <Route path="/blueprint/frontend" element={<FrontendContainer frame={frame} />} />
+          <Route path="/blueprint/backend" element={<BackendContainer />} />
+          <Route path="/blueprint/metrics" element={<MetricsContainer />} />
+          <Route path="/blueprint/gettingstarted" element={<GettingStarted />} />
+          <Route path="/blueprint/docs" element={<Docs />} />
         </Routes>
       </div>
 
