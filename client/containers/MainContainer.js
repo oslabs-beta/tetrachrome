@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function MainContainer({ frame }) {
+function MainContainer() {
   // const getElementsHandler = () => {
   //   console.log(frame);
   //   const frameContent = frameObj.contentWindow.document.body.innerHMTL;
