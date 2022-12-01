@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 function MainContainer({ frame }) {
-  // const getElementsHandler = () => {
-  //   console.log(frame);
-  //   const frameContent = frameObj.contentWindow.document.body.innerHMTL;
-  //   // console.log('frame content: ' + frameContent);
-  // }
+  const getElementsHandler = () => {
+    const frameObj = document.getElementById('app-frame');
+    console.log(frameObj);
+    const frameContent = frameObj.contentWindow.document;
+    console.log(frameContent);
+  }
 
   return (
     <>
@@ -21,7 +22,7 @@ function MainContainer({ frame }) {
         width="100%"
         height="500px"
       /> */}
-      {/* <button type="button" onClick={getElementsHandler}>Get Elements</button> */}
+      <button type="button" onClick={getElementsHandler}>Get Elements</button>
     </>
   );
 }
