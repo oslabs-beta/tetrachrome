@@ -9,7 +9,6 @@ function MainContainer() {
 
   return (
     <>
-      <h1>Loading Page</h1>
       <iframe id="app-frame"
         src='http://localhost:8080'
         width="100%"
