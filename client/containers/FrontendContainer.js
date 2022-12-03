@@ -61,10 +61,14 @@ const FrontendContainer = ({ frame }) => {
     while (nextNode) {
       // console.log('next --> ', nextNode);
       const output = performUnitOfWork(nextNode, parent);
+      console.log('inside nextNode', output);
+      if(!output) {
+        console.log('End of traversal')
+        break; 
+      }
       nextNode = output.child || output.sibling;
       parent = output.parent;
     }
-    if (!nextNode) console.log('End of traversal');
   }
 
   useEffect(() => {
