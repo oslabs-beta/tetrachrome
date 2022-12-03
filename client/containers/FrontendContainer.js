@@ -16,7 +16,6 @@ const FrontendContainer = ({ frame }) => {
   let parent = {
     name: rootNode.name,
     type: rootNode.type,
-    state: rootNode.stateNode,
     child: []
   };
   tree.push(parent);
@@ -31,21 +30,19 @@ const FrontendContainer = ({ frame }) => {
     const treeObj = {
       name: fiber.name,
       type: fiber.type,
-      state: fiber.stateNode,
       child: []
     };
 
+    parent.push(treeObj);
     if (fiber.child) {
       console.log('child -->', fiber.child);
-      parent.child.push(treeObj);
-      parent = treeObj;
+      parent = parent[0].child;
       let child = fiber.child;
       return { child, parent }; // return fiber.child + new parent obj
     }
     while (fiber) {
       if (fiber.sibling) {
         console.log('sibling --> ', fiber.sibling)
-        parent.child.push(treeObj);
         let sibling = fiber.sibling;
         return { sibling, parent };
       }
@@ -55,7 +52,7 @@ const FrontendContainer = ({ frame }) => {
     return;
   }
   // traverse component tree
-  const traverse = (nextNode) => {
+  const traverse = (nextNode, parent = tree[0].child) => {
     console.log('inside traverse');
     
     while (nextNode) {
