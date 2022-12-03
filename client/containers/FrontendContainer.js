@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Tree from '../components/Tree';
 
 const FrontendContainer = ({ frame }) => {
   // const [tree, setTree] = useState([]);
-  const tree = [];
+  const treeArr = [];
   // get document of app-frame
   const frameContent = frame.contentWindow.document;
   // find all nodes in within document body of app-frame
@@ -18,10 +19,10 @@ const FrontendContainer = ({ frame }) => {
     type: rootNode.type,
     child: []
   };
-  tree.push(parent);
+  treeArr.push(parent);
 
   useEffect(() => {
-    console.log(tree);
+    console.log(treeArr);
   }, []);
 
   // track + perform work on fiber node
@@ -52,7 +53,7 @@ const FrontendContainer = ({ frame }) => {
     return;
   }
   // traverse component tree
-  const traverse = (nextNode, parent = tree[0].child) => {
+  const traverse = (nextNode, parent = treeArr[0].child) => {
     console.log('inside traverse');
     
     while (nextNode) {
@@ -75,6 +76,7 @@ const FrontendContainer = ({ frame }) => {
   return (
     <>
       <h1>react component tree</h1>
+      <Tree treeArr={treeArr} />
     </>
   );
 }
