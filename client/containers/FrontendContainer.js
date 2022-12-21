@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import Tree from '../components/Tree';
+import Tree2 from '../components/Tree2';
 
 const FrontendContainer = ({ frame }) => {
   // const [tree, setTree] = useState([]);
@@ -82,8 +82,8 @@ const FrontendContainer = ({ frame }) => {
 
   return (
     <>
-      <h1>react component tree</h1>
-      {/* <Tree treeArr={treeArr} /> */}
+      <body>react component tree</body>
+      <Tree2 treeArr={treeArr} />
     </>
   );
 }

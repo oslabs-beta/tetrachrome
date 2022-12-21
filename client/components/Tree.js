@@ -11,18 +11,18 @@ let boxWidth = 150,
     duration = 750; // duration of transitions in ms
 
 // Setup zoom and pan
-let zoom = d3.behavior.zoom()
-  .scaleExtent([.1,1])
-  .on('zoom', function(){
-    svg.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
-  })
+// let zoom = d3.behavior.zoom()
+//   .scaleExtent([.1,1])
+//   .on('zoom', function(){
+//     svg.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+//   })
   // Offset so that first pan and zoom does not jump back to the origin
-  .translate([150, 200]);
+  // .translate([150, 200]);
 
 let svg = d3.select("body").append("svg")
   .attr('width', 1000)
   .attr('height', 500)
-  .call(zoom)
+  // .call(zoom)
   .append('g')
   
   // Left padding of tree so that the whole root node is on the screen.
