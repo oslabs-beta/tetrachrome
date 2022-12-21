@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Tree from '../components/Tree';
+// import Tree from '../components/Tree';
 
 const FrontendContainer = ({ frame }) => {
   // const [tree, setTree] = useState([]);
@@ -59,12 +59,19 @@ const FrontendContainer = ({ frame }) => {
     while (nextNode) {
       // console.log('next --> ', nextNode);
       const output = performUnitOfWork(nextNode, parent);
-      console.log('inside nextNode', output);
+      console.log('inside nextNode -->', output);
       if(!output) {
         console.log('End of traversal')
-        break; 
+        break;
       }
-      nextNode = output.child || output.sibling;
+      // nextNode = output.child || output.sibling;
+      if (output.child) {
+        console.log('next node is child');
+        nextNode = output.child;
+      } else if (output.sibling) {
+        console.log('next node is sibling');
+        nextNode = output.sibling;
+      }
       parent = output.parent;
     }
   }
@@ -76,7 +83,7 @@ const FrontendContainer = ({ frame }) => {
   return (
     <>
       <h1>react component tree</h1>
-      <Tree treeArr={treeArr} />
+      {/* <Tree treeArr={treeArr} /> */}
     </>
   );
 }
