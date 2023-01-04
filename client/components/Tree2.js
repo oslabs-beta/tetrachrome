@@ -1,10 +1,77 @@
 import React from 'react';
 import * as d3 from 'd3';
-
 import styles from '../stylesheets/_tree2.scss';
+import { min } from 'd3';
 
-const Tree2 = (treeArr) => {
-  
+const treeData = {
+  "name": "Eve",
+  "value": 15,
+  "name": "black",
+  "level": "yellow",
+  "child": [
+    {
+      "name": "Cain",
+      "value": 10,
+      "name": "grey",
+      "level": "red"
+    },
+    {
+      "name": "Seth",
+      "value": 10,
+      "name": "grey",
+      "level": "red",
+      "child": [
+        {
+          "name": "Enos",
+          "value": 7.5,
+          "name": "grey",
+          "level": "purple"
+        },
+        {
+          "name": "Noam",
+          "value": 7.5,
+          "name": "grey",
+          "level": "purple"
+        }
+      ]
+    },
+    {
+      "name": "Abel",
+      "value": 10,
+      "name": "grey",
+      "level": "blue"
+    },
+    {
+      "name": "Awan",
+      "value": 10,
+      "name": "grey",
+      "level": "green",
+      "child": [
+        {
+          "name": "Enoch",
+          "value": 7.5,
+          "name": "grey",
+          "level": "orange"
+        }
+      ]
+    },
+    {
+      "name": "Azura",
+      "value": 10,
+      "name": "grey",
+      "level": "green"
+    }
+  ]
+};
+
+
+const Tree2 = (p) => {
+  // deconstruct the prop, so now treeArr is an array of length 1
+
+  const {treeArr} = p;
+  console.log('this is treeArr', treeArr);
+  const dataTree = JSON.parse(JSON.stringify(treeArr[0]));
+
   // set the dimensions and margins of the diagram
   const margin = {top: 20, right: 90, bottom: 30, left: 90},
     width  = 500 - margin.left - margin.right,
@@ -12,13 +79,17 @@ const Tree2 = (treeArr) => {
 
   // declares a tree layout and assigns the size
   const treemap = d3.tree().size([height, width]);
-  // const treemap = d3.tree();
+
 
   //  assigns the data to a hierarchy using parent-child relationships
-  let nodes = d3.hierarchy(treeArr, d => d.child);
 
+  // // hierachy wants tree as an object, give the object inside of treeArr at index 0
+  let nodes = d3.hierarchy(dataTree, d => d.child);
+  // let nodes = d3.hierarchy(treeData, d => d.child);
   // maps the node data to the tree layout
   nodes = treemap(nodes);
+
+  console.log('this is nodes after becomming treemap', nodes);
 
   // append the svg object to the body of the page
   // appends a 'group' element to 'svg'
@@ -32,7 +103,8 @@ const Tree2 = (treeArr) => {
 
   // adds the links between the nodes
   const link = g.selectAll(".link")
-    .data(nodes.descendants().slice(1))
+    // .data(nodes.descendants().slice(1))
+    .data(nodes.descendants())
     .enter().append("path")
     .attr("class", "link")
     // .style("stroke", d => d.data.level)
@@ -68,9 +140,9 @@ const Tree2 = (treeArr) => {
     // .attr("y", d => d.child && d.depth !== 0 ? -(d.data.value + 5) : d)
     .style("text-anchor", d => {
       console.log('d.child in text -> ', d.child);
-      d.child ? "end" : "start"})
-    // .text(d => d.data.name);
-    .text("hello");
+      d.data.child ? "end" : "start"})
+      .text(d => d.data.name);
+    // .text("hello");
   
   // return (
   //   <>
