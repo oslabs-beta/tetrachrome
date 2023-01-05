@@ -1,9 +1,10 @@
+import { tree } from "d3-hierarchy";
 import React, { useState, useEffect } from "react";
 import Tree3 from '../components/Tree3';
 
 const FrontendContainer = ({ frame }) => {
-  const [treeArr, setTreeArr] = useState([]);
-  // const treeArr = [];
+  const [treeObj, setTreeObj] = useState({});
+  const treeArr = [];
   // get document of app-frame
   const frameContent = frame.contentWindow.document;
   // find all nodes in within document body of app-frame
@@ -14,12 +15,14 @@ const FrontendContainer = ({ frame }) => {
     if (node._reactRootContainer) rootNode = node._reactRootContainer._internalRoot.current;
   });  
 
+  // middleware starts here, passing in rootNode to backend to traverse
   let parent = {
     name: rootNode.name || 'dummyName',
     // type: rootNode.type || 'dummyType',
     children: []
   };
-  setTreeArr([...treeArr, parent]);
+  treeArr.push(parent);
+  // setTreeArr([...treeArr, parent]);
 
   useEffect(() => {
     console.log(treeArr);
@@ -27,14 +30,18 @@ const FrontendContainer = ({ frame }) => {
 
   // track + perform work on fiber node
   const performUnitOfWork = (fiber, parent) => {
-    // console.log('inside performUnitOfWork');
-    const treeObj = {
-      name: fiber.name || 'dummyName' + Math.random(),
+    console.log('inside performUnitOfWork');
+
+    const tempObj = {
+      name: fiber.name || 'dummyName' + Math.round(Math.random()),
       // type: fiber.type || 'dummyType',
       children: []
     };
-// setTreeArr, set state 
-    parent.push(treeObj);
+
+    parent.push(tempObj);
+    // alternative to pushing tempObj onto treeArr - setTreeArr, set state 
+    // setTreeArr([...treeArr, parent.push(tempObj)]);
+
     if (fiber.child) {
       // console.log('child -->', fiber.child);
       parent = parent[0].children;
@@ -54,7 +61,7 @@ const FrontendContainer = ({ frame }) => {
   }
   // traverse component tree
   const traverse = (nextNode, parent = treeArr[0].children) => {
-    // console.log('inside traverse');
+    console.log('inside traverse');
     
     while (nextNode) {
       // console.log('next --> ', nextNode);
@@ -62,6 +69,7 @@ const FrontendContainer = ({ frame }) => {
       // console.log('inside nextNode -->', output);
       if (!output) {
         console.log('End of traversal')
+        setTreeObj({...treeArr[0]});
         break;
       }
       // nextNode = output.child || output.sibling;
@@ -83,7 +91,7 @@ const FrontendContainer = ({ frame }) => {
   return (
     <>
       <body>react component tree</body>
-      <Tree3 treeArr={treeArr} />
+      {/* <Tree3 treeObj={treeObj} /> */}
     </>
   );
 }
