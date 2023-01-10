@@ -4,51 +4,16 @@ import styles from '../stylesheets/_tree3.scss';
 
 const Tree3 = ({ rootNode }) => {
   console.log('inside Tree3');
-  // const orgChart = {
-  //     name: 'CEO',
-  //     children: [
-  //       {
-  //         name: 'Manager',
-  //         attributes: {
-  //           department: 'Production',
-  //         },
-  //         children: [
-  //           {
-  //             name: 'Foreman',
-  //             attributes: {
-  //               department: 'Fabrication',
-  //             },
-  //             children: [
-  //               {
-  //                 name: 'Worker',
-  //               },
-  //             ],
-  //           },
-  //           {
-  //             name: 'Foreman',
-  //             attributes: {
-  //               department: 'Assembly',
-  //             },
-  //             children: [
-  //               {
-  //                 name: 'Worker',
-  //               },
-  //             ],
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   };
 
-  // const { treeObj } = p;
-  // console.log('this is treeObj', treeObj);
-  // console.log('this is orgChart', orgChart);
-  const [treeArr2, setTreeArr2] = useState({});
+  const [treeObj, setTreeObj] = useState({});
   const treeArr = [];
 
   let parent = {
-    name: rootNode.name || 'dummyName',
+    name: rootNode.name || 'root node',
     // type: rootNode.type || 'dummyType',
+    attributes: {
+      type: rootNode.elementType,
+    },
     children: []
   };
   treeArr.push(parent);
@@ -61,20 +26,32 @@ const Tree3 = ({ rootNode }) => {
   // track + perform work on fiber node
   const performUnitOfWork = (fiber, parent) => {
     console.log('inside performUnitOfWork');
+    // wrap tempObj in conditional to determine if type is meaningful (i.e. a function)
+    // console.log(fiber.type.prototype.prototype.isReactComponent);
+    let tempObj;
+    console.log('is tempObj defined --> ', tempObj);
 
-    const tempObj = {
-      name: fiber.name || 'dummyName' + Math.random(),
-      // type: fiber.type || 'dummyType',
-      children: []
-    };
+    // if (fiber.elementType !== null || typeof fiber.elementType === 'string') {
+    if (fiber.elementType !== null) {
+    // if (fiber.type.prototype.prototype.isReactComponent) {
+      tempObj = {
+        name: fiber.name || '',
+        // type: fiber.type || 'dummyType',
+        attributes: {
+          type: fiber.elementType
+        },
+        children: []
+      };
+      console.log('tempObj --> ', tempObj);
+      parent.push(tempObj);
+    }
 
-    parent.push(tempObj);
     // alternative to pushing tempObj onto treeArr - setTreeArr, set state 
     // setTreeArr([...treeArr, parent.push(tempObj)]);
 
     if (fiber.child) {
       // console.log('child -->', fiber.child);
-      parent = parent[0].children;
+      if (tempObj !== undefined) parent = parent[0].children; // move to next child if tempObj is defined
       let child = fiber.child;
       return { child, parent }; // return fiber.child + new parent obj
     }
@@ -99,7 +76,7 @@ const Tree3 = ({ rootNode }) => {
       // console.log('inside nextNode -->', output);
       if (!output) {
         console.log('End of traversal')
-        setTreeArr2(Object.assign({}, treeArr[0]));
+        setTreeObj(Object.assign({}, treeArr[0]));
         // console.log('treeArr --> ', treeArr[0]);
         break;
       }
@@ -119,13 +96,13 @@ const Tree3 = ({ rootNode }) => {
     traverse(rootNode.child);
   }, []);
 
-  useEffect(() => {
-    console.log('treeArr2 --> ', treeArr2);
-  }, [treeArr2]);
+  // useEffect(() => {
+  //   console.log('treeObj --> ', treeObj);
+  // }, [treeObj]);
 
   return (
       <div id="treeWrapper" style={{ width: '50em', height: '20em' }}>
-      <Tree data={treeArr2} />
+      <Tree data={treeObj} />
     </div>        
   )
 };

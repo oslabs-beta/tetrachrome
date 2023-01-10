@@ -14,9 +14,10 @@ const FrontendContainer = ({ frame }) => {
     if (node._reactRootContainer) rootNode = node._reactRootContainer._internalRoot.current;
   });  
 
-  // middleware starts here, passing in rootNode to backend to traverse
-
-
+  useEffect(() => {
+    console.log('rootNode --> ', rootNode);
+  }, []);
+  
   return (
     <>
       <body>react component tree</body>
