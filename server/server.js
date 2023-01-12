@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const redis = require('redis');
+
 // const helmet = require('helmet');
 
 const app = express();
@@ -9,6 +11,14 @@ const PORT = 4000;
 app.use(express.json());
 app.use(cors());
 
+////////////////////////////////
+//Redis connection
+const client = redis.createClient(6379);
+ 
+client.on("error", (error) => {
+ console.error(error);
+});
+////////////////////////////////
 // serve index.html
 app.use('/', express.static(path.join(__dirname, '../client/')));
 

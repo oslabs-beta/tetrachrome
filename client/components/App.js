@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
+import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
+const WS_URL = 'ws://127.0.0.1:3030';
+
 import Nav from "./Nav";
 
 import MainContainer from "../containers/MainContainer";
@@ -13,6 +16,11 @@ import Docs from "./Docs";
 function App() {
   const [frame, setFrame] = useState('');
 
+  useWebSocket(WS_URL, {
+    onOpen: () => {
+      console.log("websocket connection established");
+    }
+  });
 
   useEffect(() => {
     const currentFrame = document.getElementById('app-frame');
