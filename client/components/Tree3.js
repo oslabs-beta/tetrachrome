@@ -7,8 +7,9 @@ const Tree3 = ({ rootNode }) => {
 
   const [treeObj, setTreeObj] = useState({});
   const treeArr = [];
-
+  console.log('rootNode is --->', rootNode);
   let parent = {
+    // name: 'root node',
     name: rootNode.name || 'root node',
     // type: rootNode.type || 'dummyType',
     attributes: {
@@ -27,15 +28,19 @@ const Tree3 = ({ rootNode }) => {
   const performUnitOfWork = (fiber, parent) => {
     console.log('inside performUnitOfWork');
     // wrap tempObj in conditional to determine if type is meaningful (i.e. a function)
-    // console.log(fiber.type.prototype.prototype.isReactComponent);
     let tempObj;
-    console.log('is tempObj defined --> ', tempObj);
-
-    // if (fiber.elementType !== null || typeof fiber.elementType === 'string') {
-    if (fiber.elementType !== null) {
-    // if (fiber.type.prototype.prototype.isReactComponent) {
+    // if (fiber.type === 'function' && !(!!(fiber.type.prototype && fiber.type.prototype.isReactComponent)) && fiber.type.defaultProps === undefined) {
+    if ((fiber.type !== null || fiber.type === 'function') && fiber.type.prototype !== undefined) {
+    // if (fiber.elementType !== null) {
+      console.log(`
+      type is ${typeof fiber.type}
+      prototype is ${fiber.type.prototype}
+      defaultProps is ${fiber.type.defaultProps}
+      `);
+      console.log('fiber type name is --> ', fiber.type.name);
+      console.log('fiber type display name is --> ', fiber.type.displayName);
       tempObj = {
-        name: fiber.name || '',
+        name: fiber.type.name || '',
         // type: fiber.type || 'dummyType',
         attributes: {
           type: fiber.elementType
@@ -45,7 +50,8 @@ const Tree3 = ({ rootNode }) => {
       console.log('tempObj --> ', tempObj);
       parent.push(tempObj);
     }
-
+    console.log('whats child', fiber.child);
+    console.log('whats sibling', fiber.sibling);
     // alternative to pushing tempObj onto treeArr - setTreeArr, set state 
     // setTreeArr([...treeArr, parent.push(tempObj)]);
 
