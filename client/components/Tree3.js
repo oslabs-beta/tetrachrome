@@ -31,11 +31,11 @@ const Tree3 = ({ rootNode }) => {
     let tempObj;
     console.log('is tempObj defined --> ', tempObj);
 
-    // if (fiber.elementType !== null || typeof fiber.elementType === 'string') {
-    if (fiber.elementType !== null) {
+    if ((fiber.type !== null || fiber.type === 'function') && fiber.type.prototype !== undefined) {
+    // if (fiber.elementType !== null) {
     // if (fiber.type.prototype.prototype.isReactComponent) {
       tempObj = {
-        name: fiber.name || '',
+        name: fiber.type.name || '',
         // type: fiber.type || 'dummyType',
         attributes: {
           type: fiber.elementType
