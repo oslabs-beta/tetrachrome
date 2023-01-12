@@ -8,6 +8,18 @@ function Nav() {
       <div id="topNav">
         {/* add LOGO here */}
         <ul>
+        <li className="navButton">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="navButton">
+            <Link to="/blueprint/frontend">Frontend</Link>
+          </li>
+          <li className="navButton">
+            <Link to="/blueprint/backend">Backend</Link>
+          </li>
+          <li className="navButton">
+            <Link to="/blueprint/metrics">Metrics</Link>
+          </li>
           <li className="navButton">
             <Link to="/blueprint/gettingstarted">Getting Started</Link>
           </li>
@@ -16,7 +28,7 @@ function Nav() {
           </li>
         </ul>
       </div>
-      <div id="sideNav">
+      {/* <div id="sideNav">
         <ul>
           <li className="navButton">
             <Link to="/">Home</Link>
@@ -31,7 +43,7 @@ function Nav() {
             <Link to="/blueprint/metrics">Metrics</Link>
           </li>
         </ul>
-      </div>
+      </div> */}
     </>
   );
 }

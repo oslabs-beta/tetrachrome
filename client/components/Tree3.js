@@ -31,11 +31,11 @@ const Tree3 = ({ rootNode }) => {
     let tempObj;
     console.log('is tempObj defined --> ', tempObj);
 
-    // if (fiber.elementType !== null || typeof fiber.elementType === 'string') {
-    if (fiber.elementType !== null) {
+    if ((fiber.type !== null || fiber.type === 'function') && fiber.type.prototype !== undefined) {
+    // if (fiber.elementType !== null) {
     // if (fiber.type.prototype.prototype.isReactComponent) {
       tempObj = {
-        name: fiber.name || '',
+        name: fiber.type.name || '',
         // type: fiber.type || 'dummyType',
         attributes: {
           type: fiber.elementType
@@ -71,7 +71,7 @@ const Tree3 = ({ rootNode }) => {
     console.log('inside traverse');
     
     while (nextNode) {
-      // console.log('next --> ', nextNode);
+      // console.log('next --> ', nextNode); 
       const output = performUnitOfWork(nextNode, parent);
       // console.log('inside nextNode -->', output);
       if (!output) {
@@ -101,7 +101,7 @@ const Tree3 = ({ rootNode }) => {
   // }, [treeObj]);
 
   return (
-      <div id="treeWrapper" style={{ width: '50em', height: '20em' }}>
+    <div id="treeWrapper" style={{ width: '50em', height: '20em' }}>
       <Tree data={treeObj} />
     </div>        
   )
