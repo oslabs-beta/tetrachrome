@@ -71,7 +71,7 @@ const Tree3 = ({ rootNode }) => {
     console.log('inside traverse');
     
     while (nextNode) {
-      // console.log('next --> ', nextNode);
+      // console.log('next --> ', nextNode); 
       const output = performUnitOfWork(nextNode, parent);
       // console.log('inside nextNode -->', output);
       if (!output) {
@@ -101,7 +101,7 @@ const Tree3 = ({ rootNode }) => {
   // }, [treeObj]);
 
   return (
-      <div id="treeWrapper" style={{ width: '50em', height: '20em' }}>
+    <div id="treeWrapper" style={{ width: '50em', height: '20em' }}>
       <Tree data={treeObj} />
     </div>        
   )
