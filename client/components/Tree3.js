@@ -29,7 +29,7 @@ const Tree3 = ({ rootNode }) => {
     // wrap tempObj in conditional to determine if type is meaningful (i.e. a function)
     // console.log(fiber.type.prototype.prototype.isReactComponent);
     let tempObj;
-    console.log('is tempObj defined --> ', tempObj);
+    // console.log('is tempObj defined --> ', tempObj);
 
     if ((fiber.type !== null || fiber.type === 'function') && fiber.type.prototype !== undefined) {
     // if (fiber.elementType !== null) {
@@ -46,18 +46,25 @@ const Tree3 = ({ rootNode }) => {
       parent.push(tempObj);
     }
 
+    console.log('child is -->', fiber.child);
+    console.log('sibling is -->', fiber.sibling);
     // alternative to pushing tempObj onto treeArr - setTreeArr, set state 
     // setTreeArr([...treeArr, parent.push(tempObj)]);
 
-    if (fiber.child) {
+    if (fiber.child && fiber.child.elementType !== null) {
       // console.log('child -->', fiber.child);
-      if (tempObj !== undefined) parent = parent[0].children; // move to next child if tempObj is defined
+      if (tempObj !== undefined) {
+        console.log('show me parent before reassignment ->', parent);
+        parent = parent[0].children;
+      } // move to next child if tempObj is defined
       let child = fiber.child;
+      console.log('check child after reassignment', child);
+      console.log('check parent after reassignment', parent);
       return { child, parent }; // return fiber.child + new parent obj
     }
     while (fiber) {
-      if (fiber.sibling) {
-        // console.log('sibling --> ', fiber.sibling)
+      if (fiber.sibling && fiber.sibling.elementType !== null) {
+        console.log('inside sibling logic sibling --> ', fiber.sibling)
         let sibling = fiber.sibling;
         return { sibling, parent };
       }
