@@ -47,23 +47,20 @@ const Tree3 = ({ rootNode }) => {
     // alternative to pushing tempObj onto treeArr - setTreeArr, set state 
     // setTreeArr([...treeArr, parent.push(tempObj)]);
 
-    if (fiber.child && fiber.child.elementType !== null) {
-      // console.log('child -->', fiber.child);
+    if (fiber.child && fiber.child.elementType !== null && (fiber.child.tag !== 5 || fiber.child.child !== null )) {
       if (tempObj !== undefined) {
-        console.log('show me parent before reassignment ->', parent);
         parent = tempObj.children;
-        // parent = parent[0].children;
-      } // move to next child if tempObj is defined
+      } // move to next child if tempObj is defined  
       let child = fiber.child;
       return { child, parent }; // return fiber.child + new parent obj
     }
+    console.log('what is fiber at this point before moving to sibling', fiber);
+    console.log('what is parent at this point before moving to sibling', parent);
     while (fiber) {
-      if (fiber.sibling && fiber.sibling.elementType !== null) {
-        console.log('inside sibling logic sibling --> ', fiber.sibling)
+      if (fiber.sibling && fiber.sibling.elementType !== null && (fiber.sibling.tag !== 5 || fiber.sibling.sibling !== null)) {
         let sibling = fiber.sibling;
         return { sibling, parent };
       }
-      // console.log('inside performUnitOfWork - fiber.return')
       fiber = fiber.return;
     }
     return;
@@ -73,21 +70,15 @@ const Tree3 = ({ rootNode }) => {
     console.log('inside traverse');
     
     while (nextNode) {
-      // console.log('next --> ', nextNode); 
       const output = performUnitOfWork(nextNode, parent);
-      // console.log('inside nextNode -->', output);
       if (!output) {
         console.log('End of traversal')
         setTreeObj(Object.assign({}, treeArr[0]));
-        // console.log('treeArr --> ', treeArr[0]);
         break;
       }
-      // nextNode = output.child || output.sibling;
       if (output.child) {
-        // console.log('next node is child');
         nextNode = output.child;
       } else if (output.sibling) {
-        // console.log('next node is sibling');
         nextNode = output.sibling;
       }
       parent = output.parent;
