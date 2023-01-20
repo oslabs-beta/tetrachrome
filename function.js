@@ -5,6 +5,7 @@ const router = express.Router();
 const morgan = require("morgan");
 const winston = require("winston");
 const { combine, timestamp, json } = winston.format;
+const wSocket = require("winston-socket.io");
 
 //we are going to save the route stack in this variable
 const routes = [];
@@ -19,6 +20,8 @@ const io = new Server(3030, {
     origin: "*",
   },
 });
+
+const socketTransport = new wSocket({ io, namespace: "log", log_topic: "log" });
 
 io.on("connection", (socket) => {
   // send a message to the client
@@ -61,6 +64,8 @@ const logger = winston.createLogger({
     //   port: 3000,
     //   path: "/winstonlogs"
     // }),
+    // new winston.transports.wSocket({io})
+    socketTransport,
   ],
 });
 // router.use(
@@ -106,7 +111,7 @@ router
       {
         stream: {
           write: (message) => {
-            const data = JSON.stringify(message);
+            const data = JSON.parse(message);
             logger.http("incoming-request", data);
           },
         },
@@ -124,7 +129,7 @@ router
 //   });
 // });
 
-router.get("/httplogs", (req, res) => {});
+// router.get("/httplogs", (req, res) => {});
 
 const routeStack = (app) => {
   console.log("about to send route stack");

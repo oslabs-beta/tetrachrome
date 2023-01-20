@@ -29,6 +29,9 @@ function App() {
     socketRef.current.on("route stack", (routes) => {
       setRoutes(routes);
     });
+    socketRef.current.on("log", (winstonLogs) => {
+      console.log(winstonLogs);
+    });
   }
 
   useEffect(() => {
