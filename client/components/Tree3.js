@@ -27,16 +27,12 @@ const Tree3 = ({ rootNode }) => {
   const performUnitOfWork = (fiber, parent) => {
     console.log('inside performUnitOfWork');
     // wrap tempObj in conditional to determine if type is meaningful (i.e. a function)
-    // console.log(fiber.type.prototype.prototype.isReactComponent);
     let tempObj;
-    // console.log('is tempObj defined --> ', tempObj);
 
-    if ((fiber.type !== null || fiber.type === 'function') && fiber.type.prototype !== undefined) {
+    if ((fiber.name !== null || fiber.type === 'function') && fiber.type.prototype !== undefined && fiber.tag !== 5) {
     // if (fiber.elementType !== null) {
-    // if (fiber.type.prototype.prototype.isReactComponent) {
       tempObj = {
         name: fiber.type.name || '',
-        // type: fiber.type || 'dummyType',
         attributes: {
           type: fiber.elementType
         },
@@ -55,11 +51,10 @@ const Tree3 = ({ rootNode }) => {
       // console.log('child -->', fiber.child);
       if (tempObj !== undefined) {
         console.log('show me parent before reassignment ->', parent);
-        parent = parent[0].children;
+        parent = tempObj.children;
+        // parent = parent[0].children;
       } // move to next child if tempObj is defined
       let child = fiber.child;
-      console.log('check child after reassignment', child);
-      console.log('check parent after reassignment', parent);
       return { child, parent }; // return fiber.child + new parent obj
     }
     while (fiber) {
@@ -102,10 +97,6 @@ const Tree3 = ({ rootNode }) => {
   useEffect(() => {
     traverse(rootNode.child);
   }, []);
-
-  // useEffect(() => {
-  //   console.log('treeObj --> ', treeObj);
-  // }, [treeObj]);
 
   return (
     <div id="treeWrapper" style={{ width: '50em', height: '20em' }}>
