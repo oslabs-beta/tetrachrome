@@ -5,7 +5,8 @@ const router = express.Router();
 const morgan = require("morgan");
 const winston = require("winston");
 const { combine, timestamp, json } = winston.format;
-const wSocket = require("winston-socket.io");
+require("winston-socket.io");
+
 
 //we are going to save the route stack in this variable
 const routes = [];
@@ -21,7 +22,7 @@ const io = new Server(3030, {
   },
 });
 
-const socketTransport = new wSocket({ io, namespace: "log", log_topic: "log" });
+// const socketTransport = new wSocket({ io, namespace: "log", log_topic: "log" });
 
 io.on("connection", (socket) => {
   // send a message to the client
@@ -33,24 +34,48 @@ io.on("connection", (socket) => {
   socket.on("hello from blueprint", (message) => {
     console.log("received message:", message);
   });
+  socket.emit('log', 'hello this is log');
 });
+
+
+// create a namespace for the websocket
+io.of("/log").on("connection", (socket) => {
+  console.log("LOG NAMESPACE: SERVER SIDE");
+  socket.emit('hello', 'THIS IS FROM SERVER SIDE LOG');
+  socket.on("log", function(data){
+    console.log('got log data');
+    console.log(data);
+
+    // trying to send the message received from winston to the client
+    // but this is not working here
+    // socket.emit('winstonLog', data);
+  });
+})
 
 /**
  * winston logger
  */
 
 const logger = winston.createLogger({
-  level: "http",
+  level: 'http',
   format: combine(
     timestamp({
-      format: "YYYY-MM-DD hh:mm:ss.SSS A",
+      format: 'YYYY-MM-DD hh:mm:ss.SSS A',
     }),
     json()
   ),
   transports: [
     new winston.transports.Console(),
     new winston.transports.File({
-      filename: "logs.log",
+      filename: 'logs.log',
+    }),
+    new winston.transports.SocketIO({
+      host: 'localhost',
+      port: 3030,
+      secure: false,
+      reconnect: true,
+      namespace: 'log',
+      log_topic:'log'
     }),
     // new HttpStreamTransport({
     //   url: 'http://localhost:3030'
@@ -65,9 +90,17 @@ const logger = winston.createLogger({
     //   path: "/winstonlogs"
     // }),
     // new winston.transports.wSocket({io})
-    socketTransport,
+    // socketTransport,
   ],
 });
+
+// const transport = new CustomTransport();
+// transport.on('logged', (info) => {
+//   // Verification that log was called on your transport
+//   console.log(`Logging! It's happening!`, info);
+// });
+
+
 // router.use(
 //   "/blueprint",
 //   express.static(path.resolve(__dirname, "../Build"))
@@ -76,25 +109,6 @@ const logger = winston.createLogger({
 //   "/blueprint",
 //   express.static(path.resolve(__dirname, "../Blueprint/Build"))
 // );
-
-// const Transport = require('winston-transport');
-// class CustomTransport extends Transport {
-
-//   log(info, callback) {
-//     setImmediate(() => {
-//       this.emit('logged', info);
-//     });
-
-//     // Perform the writing to the remote servic
-//     callback();
-//   }
-// }
-
-// const transport = new CustomTransport();
-// transport.on('logged', (info) => {
-//   // Verification that log was called on your transport
-//   console.log(`Logging! It's happening!`, info);
-// });
 
 router
   .use(
@@ -134,7 +148,7 @@ router
 const routeStack = (app) => {
   console.log("about to send route stack");
   app._router.stack.forEach(print.bind(null, []));
-  // console.log(routes);
+  console.log(routes);
 };
 
 exports.routeStack = routeStack;

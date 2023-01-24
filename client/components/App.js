@@ -14,7 +14,9 @@ function App() {
   const [frame, setFrame] = useState('');
   //ref hook for socket.io
   const socketRef = useRef();
-  const [routesStack, setRoutes] = useState([])
+  const [routesStack, setRoutes] = useState([]);
+  const logRef = useRef();
+  const [logStack, setLogs] = useState([]);
 
   //function that connects to the websocket and contains events listeners
   function connectSocketIO() {
@@ -31,6 +33,14 @@ function App() {
     });
     socketRef.current.on("log", (winstonLogs) => {
       console.log(winstonLogs);
+    });
+
+    logRef.current = io("ws://localhost:3030/log")
+    logRef.current.on("hello", (data) => {
+      console.log(data);
+    });
+    logRef.current.on("winstonLog", (data) => {
+      console.log(data);
     });
   }
 
