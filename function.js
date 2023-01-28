@@ -25,24 +25,17 @@ const io = new Server(3030, {
 // const socketTransport = new wSocket({ io, namespace: "log", log_topic: "log" });
 
 io.of('/log').on("connection", (socket) => {
-  // send a message to the client
-  console.log("socket connection");
-  socket.emit("hello from user server", "hello from user server");
+  console.log("socket connection established");
   //send route stack to blueprint frontend
   socket.emit("route stack", routes);
-  // receive a message from the client
-  socket.on("hello from blueprint", (message) => {
-    console.log("received message:", message);
-  });
-  // socket.emit('log', 'hello this is log');
-  socket.on("log", function(data){
-    console.log('got log data');
-    console.log(data);
+  // socket.on("log", function(data){
+  //   console.log('got log data');
+  //   console.log(data);
 
-    // trying to send the message received from winston to the client
-    // but this is not working here
-    socket.emit('winstonlog', data);
-  });
+  //   // trying to send the message received from winston to the client
+  //   // but this is not working here
+  //   socket.emit('winstonlog', data);
+  // });
 });
 
 
@@ -87,13 +80,6 @@ io.of('/log').on("connection", (socket) => {
 //   ],
 // });
 
-// const transport = new CustomTransport();
-// transport.on('logged', (info) => {
-//   // Verification that log was called on your transport
-//   console.log(`Logging! It's happening!`, info);
-// });
-
-
 // router.use(
 //   "/blueprint",
 //   express.static(path.resolve(__dirname, "../Build"))
@@ -121,7 +107,8 @@ router
           //   const data = JSON.parse(message);
           //   logger.http("incoming-request", data);
           // },
-          write: (message) => io.of("/log").emit("winstonlog", message)
+          //stream morgan logs and send it to the blueprint frontend
+          write: (message) => io.of("/log").emit("log", message)
         },
       }
     )
@@ -136,8 +123,6 @@ router
 //     io.emit("logger", logMsg);
 //   });
 // });
-
-// router.get("/httplogs", (req, res) => {});
 
 const routeStack = (app) => {
   setImmediate(() => {
