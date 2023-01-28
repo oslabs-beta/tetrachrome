@@ -23,14 +23,9 @@ const io = new Server(3030, {
 
 io.of("/log").on("connection", (socket) => {
   // send a message to the client
-  console.log("socket connection");
-  socket.emit("hello from user server", "hello from user server");
+  console.log("socket connection established");
   //send route stack to blueprint frontend
   socket.emit("route stack", routes);
-  // receive a message from the client
-  socket.on("hello from blueprint", (message) => {
-    console.log("received message:", message);
-  });
   socket.on("log", function (data) {
     console.log("got log data");
     console.log(data);

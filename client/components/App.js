@@ -24,12 +24,8 @@ function App() {
   function connectSocketIO() {
     // send a message to the server
     socketRef.current = io("ws://localhost:3030/log");
-    socketRef.current.emit("hello from blueprint", "hello from blueprint");
-
+    console.log('socket connected to the user app');
     // receive a message from the server
-    socketRef.current.on("hello from user server", (message) => {
-      console.log(message);
-    });
     socketRef.current.on("route stack", (routes) => {
       setRoutes(routes);
     });
@@ -42,7 +38,6 @@ function App() {
         return newLogs;
       });
     });
-
   }
 
   useEffect(() => {
