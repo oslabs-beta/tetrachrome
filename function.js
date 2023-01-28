@@ -81,6 +81,7 @@ router
           status: Number.parseFloat(tokens.status(req, res)),
           content_length: tokens.res(req, res, "content-length"),
           response_time: Number.parseFloat(tokens["response-time"](req, res)),
+          date: tokens["date"](req, res),
         });
       },
       {
