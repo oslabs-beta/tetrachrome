@@ -8,6 +8,7 @@ import MetricsContainer from "../containers/MetricsContainer";
 import GettingStarted from "./GettingStarted";
 import Docs from "./Docs";
 import { io } from "socket.io-client";
+import immer from "immer";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const socketRef = useRef();
   //hook to store the backend routes
   const [routesStack, setRoutes] = useState([]);
+  const [logList, setLogList] = useState([]);
 
 
   //function that connects to the websocket and contains events listeners
@@ -31,9 +33,14 @@ function App() {
     socketRef.current.on("route stack", (routes) => {
       setRoutes(routes);
     });
-    socketRef.current.on("winstonlog", (winstonLogs) => {
-      console.log('on winston log socket event listener');
-      console.log(winstonLogs);
+    socketRef.current.on("winstonlog", (newLog) => {
+      console.log(newLog);
+      setLogList((logs) => {
+        const newLogs = immer(logs, (draft) => {
+          draft.push(newLog);
+        });
+        return newLogs;
+      });
     });
 
   }
@@ -54,7 +61,7 @@ function App() {
         <Routes>
           <Route path="/blueprint/frontend" element={<FrontendContainer frame={frame}/>} />
           <Route path="/blueprint/backend" element={<BackendContainer routes={routesStack}/>} />
-          <Route path="/blueprint/metrics" element={<MetricsContainer socketRef={socketRef}/>} />
+          <Route path="/blueprint/metrics" element={<MetricsContainer logList={logList}/>} />
           <Route path="/blueprint/gettingstarted" element={<GettingStarted />} />
           <Route path="/blueprint/docs" element={<Docs />} />
         </Routes>

@@ -1,15 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-const MetricsContainer = ({socketRef}) => {
+const MetricsContainer = ({ logList }) => {
+    
+  useEffect(() => {
+    console.log("logList: ", logList);
+  }, [logList]);
 
-    // const [logList, setLogList] = useState([]);
+  const logs = [];
 
-    // useEffect(() => {
+  logList.forEach((log, index) => {
+    logs.push(
+      <p key={index} className="single-log">
+        {log}
+      </p>
+    );
+  });
 
-    // })
-    return <>
-    metrics page
+  return (
+    <>
+      <h2>Metrics: </h2>
+      <div id="logs-container">{logs}</div>
     </>
-}
+  );
+};
 
 export default MetricsContainer;
