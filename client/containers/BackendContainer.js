@@ -38,7 +38,7 @@ for (let i = 0; i < routesArray.length; i++) {
     // console.log(expressObject)
   return (
     <>
-      <h2>backend requests</h2>
+      <div className="page-header">backend requests</div>
       {routeList}
     </>
   )

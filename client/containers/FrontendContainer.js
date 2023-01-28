@@ -18,7 +18,7 @@ const FrontendContainer = ({ frame }) => {
 
   return (
     <>
-      <h2>react component tree</h2>
+      <div className="page-header">react component tree</div>
       <Tree3 rootNode={rootNode} />
     </>
   );

@@ -1,49 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Nav2 from "./Nav2";
 
 function Nav() {
 
   return (
     <>
+      <Nav2 />
       <div id="topNav">
         {/* add LOGO here */}
+        {/* <p className="logo">
+          <Link to="/blueprint"><span id="blue">blue</span><span id="print">print</span></Link>
+        </p>
         <ul>
         <li className="navButton">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="navButton">
-            <Link to="/blueprint/frontend">Frontend</Link>
-          </li>
-          <li className="navButton">
-            <Link to="/blueprint/backend">Backend</Link>
-          </li>
-          <li className="navButton">
-            <Link to="/blueprint/metrics">Metrics</Link>
-          </li>
-          <li className="navButton">
-            <Link to="/blueprint/gettingstarted">Getting Started</Link>
-          </li>
-          <li className="navButton">
-            <Link to="/blueprint/docs">Docs</Link>
-          </li>
-        </ul>
+          <Link to="/blueprint/frontend">frontend</Link>
+        </li>
+        <li className="navButton">
+          <Link to="/blueprint/backend">backend</Link>
+        </li>
+        <li className="navButton">
+          <Link to="/blueprint/metrics">metrics</Link>
+        </li>
+        <li className="navButton">
+          <Link to="/blueprint/gettingstarted">getting started</Link>
+        </li>
+        <li className="navButton">
+          <Link to="/blueprint/docs">docs</Link>
+        </li>
+        </ul> */}
       </div>
-      {/* <div id="sideNav">
-        <ul>
-          <li className="navButton">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="navButton">
-            <Link to="/blueprint/frontend">Frontend</Link>
-          </li>
-          <li className="navButton">
-            <Link to="/blueprint/backend">Backend</Link>
-          </li>
-          <li className="navButton">
-            <Link to="/blueprint/metrics">Metrics</Link>
-          </li>
-        </ul>
-      </div> */}
     </>
   );
 }

@@ -1,113 +1,88 @@
 * {
   margin: 0;
-  font-family: $bodyFont;
+  font-family: $body-font;
+  // background-color: $page-background-color;
 }
 
-// #sideNav {
-//   // display: flex;
-//   // flex-direction: column;
-//   position: absolute;
-//   float: left;
-//   min-width: 15vw;
-//   height: 100%;
-//   background-color: black;
-// }
-
-// #sideNav ul {
-//   padding: 0;
-// }
-
-// #sideNav ul li {
+#topNav { 
 //   display: flex;
-//   list-style: none;
-//   justify-content: center;
-//   margin: 0;
+//   justify-content: flex-end;
+//   align-items: center;
+//   height: 50px;
+  background-color: $nav-background-color;
+//   ul {
+//     padding-right: 35px;
+//     background-color: $nav-background-color;
+//     color: $header-font-color1;
+//   }
+//   ul li {
+//     list-style: none;
+//     display: inline-block;
+//     padding-right: 15px;
+//     background-color: $nav-background-color;
+//     color: $header-font-color1;
+  }
+  
 // }
 
-#topNav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 50px;
-  padding-right: 35px;
-  background-color: black;
-}
-
-#topNav ul li {
-  list-style: none;
-  display: inline-block;
-  padding-right: 15px;
-}
-
-.navButton a {
+.navButton, .navButton:a {
   padding: 5px;
-  font-weight: bold;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
+  font-weight: 300;
+  justify-content: end;
 }
 
-#container {
-  // width: 85%;
-  height: 50%;
-  padding: 15px;
-  border: 1px solid orange;
-
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr 1fr;
-  // grid-template-rows: auto;
-  // grid-template-areas: 
-  //   "frame frame frame frame"
-  //   "frontend frontend backend backend"
-}
-#side-container {
-  // width: 85%;
-  padding: 15px;
-  height: 50%;
-  border: 1px solid green;
-
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr 1fr;
-  // grid-template-rows: auto;
-  // grid-template-areas: 
-  //   "frame frame frame frame"
-  //   "frontend frontend backend backend"
-}
-
-#frontend-container {
-  padding: 15px;
-  border: 1px solid red;
-}
-
-#backend-container {
-  padding: 15px;
-  border: 1px solid blue;
-}
-
-
-
-// TREE CSS
-// body {
-//   text-align: center;
+// .navButton :hover {
+//   padding: 5px;
+//   font-weight: bold;
+//   text-decoration: double;
+//   background-color: $nav-background-color;
+//   color: white;
 // }
 
-// svg {
-//   margin-top: 32px;
-//   border: 1px solid #aaa;
+// .logo {
+//   position: absolute;
+//   top: 0px;
+//   left: 0px;
+//   margin-left: 25px;
+
+//   background-color: $nav-background-color;
+//   padding: 5px;
+
+//   font-size: 24px;
+//   font-weight: 400;
+  
+//   span {
+//     font-family: $header-font;
+  
+//     #blue {
+//       color: $header-font-color1;
+//     }
+  
+//     #print {
+//       color: $header-font-color2;
+//     }
+//   }
 // }
 
-// .person rect {
-//   fill: #fff;
-//   stroke: steelblue;
-//   stroke-width: 1px;
+// .page-header {
+//   font-family: $header-font;
+//   color: $page-header-font-color;
+//   font-size: 24px;
+//   font-weight: 300;
+//   padding: 5px;
 // }
 
-// .person {
-//   font: 14px sans-serif;
-//   cursor: pointer;
+// #side-container {
+//   height: 50%;
+//   padding: 15px;
 // }
 
-// .link {
-//   fill: none;
-//   stroke: #ccc;
-//   stroke-width: 1.5px;
+// #frontend-container {
+//   padding: 15px;
+// }
+
+// #backend-container {
+//   padding: 15px;
 // }
