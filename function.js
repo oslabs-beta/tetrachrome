@@ -22,35 +22,17 @@ const io = new Server(3030, {
   },
 });
 
-// const socketTransport = new wSocket({ io, namespace: "log", log_topic: "log" });
-
 io.of('/log').on("connection", (socket) => {
   console.log("socket connection established");
   //send route stack to blueprint frontend
   socket.emit("route stack", routes);
   // socket.on("log", function(data){
-  //   console.log('got log data');
   //   console.log(data);
-
-  //   // trying to send the message received from winston to the client
+  //   // trying to send the log data from winston to blueprint frontend
   //   // but this is not working here
   //   socket.emit('winstonlog', data);
   // });
 });
-
-
-// create a namespace for the websocket
-// io.of("/log").on("connection", (socket) => {
-//   console.log("LOG NAMESPACE: SERVER SIDE");
-//   socket.emit('hello', 'THIS IS FROM SERVER SIDE LOG');
-//   socket.on("log", function(data){
-//     console.log('got log data');
-//     console.log(data);
-    // trying to send the message received from winston to the client
-    // but this is not working here
-    // socket.emit('winstonLog', data);
-//   });
-// })
 
 /**
  * winston logger
@@ -127,6 +109,7 @@ router
 const routeStack = (app) => {
   setImmediate(() => {
   console.log("about to send route stack");
+  //this method will grab the user route stack and store it in the routes array
   app._router.stack.forEach(print.bind(null, []));
   console.log(routes);
   })
