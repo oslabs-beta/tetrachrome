@@ -33,20 +33,6 @@ io.of("/log").on("connection", (socket) => {
   });
 });
 
-// create a namespace for the websocket
-// io.of("/log").on("connection", (socket) => {
-//   console.log("LOG NAMESPACE: SERVER SIDE");
-//   socket.emit('hello', 'THIS IS FROM SERVER SIDE LOG');
-//   socket.on("log", function(data){
-//     console.log('got log data');
-//     console.log(data);
-
-//     // trying to send the message received from winston to the client
-//     // but this is not working here
-//     socket.emit('winstonlog', data);
-//   });
-// });
-
 /**
  * winston logger
  */
@@ -74,14 +60,6 @@ const logger = winston.createLogger({
     }),
   ],
 });
-// router.use(
-//   "/blueprint",
-//   express.static(path.resolve(__dirname, "../Build"))
-// );
-// app.use(
-//   "/blueprint",
-//   express.static(path.resolve(__dirname, "../Blueprint/Build"))
-// );
 
 const metrics = morgan(
   function (tokens, req, res) {
@@ -91,6 +69,7 @@ const metrics = morgan(
       status: Number.parseFloat(tokens.status(req, res)),
       content_length: tokens.res(req, res, "content-length"),
       response_time: Number.parseFloat(tokens["response-time"](req, res)),
+      date: tokens["date"](req, res),
     });
   },
   // {
@@ -105,15 +84,6 @@ const metrics = morgan(
 );
 
 router.use("/blueprint", express.static(path.resolve(__dirname, "./build")));
-// .listen(3000, (err, req, res) => {
-//   let logMsg = "";
-//   req.on("data", function (data) {
-//     logMsg += data.toString();
-//   });
-//   req.on("end", function (data) {
-//     io.emit("logger", logMsg);
-//   });
-// });
 
 const routeStack = (app) => {
   //NOTE: setImmediate was used to ensure that we get the full route stack. Before this change, the user had to invoked routeStack after the route handlers
