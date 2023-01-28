@@ -14,14 +14,14 @@ function App() {
   const [frame, setFrame] = useState('');
   //ref hook for socket.io
   const socketRef = useRef();
+  //hook to store the backend routes
   const [routesStack, setRoutes] = useState([]);
-  const logRef = useRef();
-  const [logStack, setLogs] = useState([]);
+
 
   //function that connects to the websocket and contains events listeners
   function connectSocketIO() {
     // send a message to the server
-    socketRef.current = io("ws://localhost:3030");
+    socketRef.current = io("ws://localhost:3030/log");
     socketRef.current.emit("hello from blueprint", "hello from blueprint");
 
     // receive a message from the server
@@ -31,17 +31,11 @@ function App() {
     socketRef.current.on("route stack", (routes) => {
       setRoutes(routes);
     });
-    socketRef.current.on("log", (winstonLogs) => {
+    socketRef.current.on("winstonlog", (winstonLogs) => {
+      console.log('on winston log socket event listener');
       console.log(winstonLogs);
     });
 
-    logRef.current = io("ws://localhost:3030/log")
-    logRef.current.on("hello", (data) => {
-      console.log(data);
-    });
-    logRef.current.on("winstonLog", (data) => {
-      console.log(data);
-    });
   }
 
   useEffect(() => {
@@ -60,7 +54,7 @@ function App() {
         <Routes>
           <Route path="/blueprint/frontend" element={<FrontendContainer frame={frame}/>} />
           <Route path="/blueprint/backend" element={<BackendContainer routes={routesStack}/>} />
-          <Route path="/blueprint/metrics" element={<MetricsContainer />} />
+          <Route path="/blueprint/metrics" element={<MetricsContainer socketRef={socketRef}/>} />
           <Route path="/blueprint/gettingstarted" element={<GettingStarted />} />
           <Route path="/blueprint/docs" element={<Docs />} />
         </Routes>
