@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Tree from 'react-d3-tree';
 import styles from '../stylesheets/_tree3.scss';
 
-const componentTree = ({ rootNode }) => {
+const ComponentTree = ({ rootNode }) => {
 
   // initialize treeObject that we'll store components
   // we'll store the entire tree at index 0 of treeArr array
@@ -91,4 +91,4 @@ const componentTree = ({ rootNode }) => {
   )
 };
 
-export default componentTree;
+export default ComponentTree;
