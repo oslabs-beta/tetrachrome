@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/oslabs-beta/blueprint#readme",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.6",
+    "@mui/x-data-grid": "^5.17.21",
     "cors": "^2.8.5",
     "css-loader": "^6.7.2",
     "d3": "^7.7.0",
