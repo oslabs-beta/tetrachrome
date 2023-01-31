@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
-import Nav from "./Nav";
+import Nav2 from "./Nav2";
 import MainContainer from "../containers/MainContainer";
 import FrontendContainer from "../containers/FrontendContainer";
 import BackendContainer from "../containers/BackendContainer";
@@ -47,7 +47,7 @@ function App() {
 
   return (
     <>
-      <Nav />
+      <Nav2 />
       <div id="container">
         <MainContainer />
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Tree3 from '../components/Tree3';
+import ComponentTree from '../components/componentTree';
 
 const FrontendContainer = ({ frame }) => {
   // get document of app-frame
@@ -19,7 +19,7 @@ const FrontendContainer = ({ frame }) => {
   return (
     <>
       <h2>react component tree</h2>
-      <Tree3 rootNode={rootNode} />
+      <ComponentTree rootNode={rootNode} />
     </>
   );
 }
