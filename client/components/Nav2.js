@@ -31,25 +31,27 @@ function Nav2() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ bgcolor: '#293462' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/blueprint"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
+              fontFamily: 'April Fatface',
+              fontWeight: 2500,
+              fontSize: 36,
+              // letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              textAlign: 'center'
             }}
           >
-            blueprint
+            <span className="tetra">tetra</span>chrome
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -78,7 +80,7 @@ function Nav2() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'none', md: 'none', textDecoration: 'none', alignContent: 'center' },
               }}
             >
                 <MenuItem onClick={handleCloseNavMenu}>
@@ -101,29 +103,30 @@ function Nav2() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'April Fatface',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              textAlign: 'center'
             }}
           >
-            blueprint
+            <span className="tetra">tetra</span>chrome
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', textAlign: 'center' } }}>
             <Link to="/blueprint/frontend">
               <Button className="navButton"
                 onClick={handleCloseNavMenu}
-                sx={{ color: 'white' }}
+                sx={{ color: 'white', textDecoration: 'none' }}
               >Frontend</Button></Link>
             <Link to="/blueprint/backend">
               <Button className="navButton"
                 onClick={handleCloseNavMenu}
-                sx={{ color: 'white' }}
+                sx={{ color: 'white', textDecoration: 'none' }}
               >Backend</Button></Link>
             <Link to="/blueprint/gettingstarted">
               <Button className="navButton"
-                sx={{ color: 'white' }}
+                sx={{ color: 'white', textDecoration: 'none' }}
                 onClick={handleCloseNavMenu}
               >Getting Started</Button></Link>
           </Box>
