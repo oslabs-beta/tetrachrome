@@ -9,11 +9,14 @@ const MetricsContainer = ({ logList }) => {
   const logs = [];
 
   logList.forEach((log, index) => {
-    logs.push(
-      <p key={index} className="single-log">
-        {log}
-      </p>
-    );
+    console.log(log);
+    const singleLog = JSON.parse(log);
+    console.log(singleLog);
+    // logs.push(
+    //   <p key={index} className="single-log">
+    //     {log}
+    //   </p>
+    // );
   });
 
   return (
