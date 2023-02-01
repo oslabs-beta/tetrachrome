@@ -38,7 +38,7 @@ function Nav2() {
             variant="h6"
             noWrap
             component="a"
-            href="/blueprint"
+            href="/tetrachrome"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -84,16 +84,16 @@ function Nav2() {
               }}
             >
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"><Link to="/blueprint/frontend">Frontend</Link></Typography>
+                  <Typography textAlign="center"><Link to="/tetrachrome/frontend">Frontend</Link></Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"><Link to="/blueprint/backend">Backend</Link></Typography>
+                  <Typography textAlign="center"><Link to="/tetrachrome/backend">Backend</Link></Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"><Link to="/blueprint/metrics">Metrics</Link></Typography>
+                  <Typography textAlign="center"><Link to="/tetrachrome/metrics">Metrics</Link></Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"><Link to="/blueprint/gettingstarted">Getting Started</Link></Typography>
+                  <Typography textAlign="center"><Link to="/tetrachrome/gettingstarted">Getting Started</Link></Typography>
                 </MenuItem>
             </Menu>
           </Box>
@@ -117,22 +117,22 @@ function Nav2() {
             <span className="tetra">tetra</span>chrome
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', textAlign: 'center' } }}>
-            <Link to="/blueprint/frontend">
+            <Link to="/tetrachrome/frontend">
               <Button className="navButton"
                 onClick={handleCloseNavMenu}
                 sx={{ color: 'white', textDecoration: 'none' }}
               >Frontend</Button></Link>
-            <Link to="/blueprint/backend">
+            <Link to="/tetrachrome/backend">
               <Button className="navButton"
                 onClick={handleCloseNavMenu}
                 sx={{ color: 'white', textDecoration: 'none' }}
               >Backend</Button></Link>
-            <Link to="/blueprint/metrics">
+            <Link to="/tetrachrome/metrics">
               <Button className="navButton"
                 onClick={handleCloseNavMenu}
                 sx={{ color: 'white', textDecoration: 'none' }}
               >Metrics</Button></Link>
-            <Link to="/blueprint/gettingstarted">
+            <Link to="/tetrachrome/gettingstarted">
               <Button className="navButton"
                 sx={{ color: 'white', textDecoration: 'none' }}
                 onClick={handleCloseNavMenu}
