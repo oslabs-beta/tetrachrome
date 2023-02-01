@@ -12,8 +12,9 @@ const columns = [
 ];
 
 const MetricsContainer = ({ logList }) => {
+  
   useEffect(() => {
-    console.log("logList: ", logList);
+    // console.log("logList: ", logList);
   }, [logList]);
 
   const logs = [];
@@ -22,18 +23,11 @@ const MetricsContainer = ({ logList }) => {
     const singleLog = JSON.parse(log);
     singleLog.id = index;
     logs.push(singleLog);
-    // logs.push(
-    //   <p key={index} className="single-log">
-    //     {log}
-    //   </p>
-    // );
+
   });
 
   return (
-    // <>
-    //   <h2>Metrics: </h2>
-    //   <div id="logs-container">{logs}</div>
-    // </>
+
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={logs}
@@ -44,37 +38,6 @@ const MetricsContainer = ({ logList }) => {
       />
     </div>
 
-    // <TableContainer component={Paper}>
-    //   <Table sx={{ minWidth: 650 }} aria-label="simple table">
-    //     <TableHead>
-    //       <TableRow>
-    //         <TableCell>Method</TableCell>
-    //         <TableCell align="right">Endpoint</TableCell>
-    //         <TableCell align="right">Status</TableCell>
-    //         <TableCell align="right">Content_Length</TableCell>
-    //         <TableCell align="right">Response_Time</TableCell>
-    //         <TableCell align="right">Date</TableCell>
-    //       </TableRow>
-    //     </TableHead>
-    //     <TableBody>
-    //       {logs.map((log) => (
-    //         <TableRow
-    //           key={log.date}
-    //           sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-    //         >
-    //           <TableCell component="th" scope="row">
-    //             {log.method}
-    //           </TableCell>
-    //           <TableCell align="right">{log.url}</TableCell>
-    //           <TableCell align="right">{log.status}</TableCell>
-    //           <TableCell align="right">{log.content_length}</TableCell>
-    //           <TableCell align="right">{log.response_time}</TableCell>
-    //           <TableCell align="right">{log.date}</TableCell>
-    //         </TableRow>
-    //       ))}
-    //     </TableBody>
-    //   </Table>
-    // </TableContainer>
   );
 };
 

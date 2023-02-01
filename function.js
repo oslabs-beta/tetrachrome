@@ -3,9 +3,9 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const morgan = require("morgan");
-const winston = require("winston");
-const { combine, timestamp, json } = winston.format;
-require("winston-socket.io");
+// const winston = require("winston");
+// const { combine, timestamp, json } = winston.format;
+// require("winston-socket.io");
 
 
 //we are going to save the route stack in this variable
@@ -64,7 +64,7 @@ const routeStack = (app) => {
   console.log("about to send route stack");
   //this method will grab the user route stack and store it in the routes array
   app._router.stack.forEach(print.bind(null, []));
-  console.log(routes);
+  // console.log(routes);
   })
 };
 
