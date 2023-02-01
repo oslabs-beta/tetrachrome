@@ -17,7 +17,7 @@ Tetrachrome is a full-stack visualization tool for developers using React and Ex
 ## Installation
 1. Assuming you've already installed Node.js and npm, install the Tetrachrome package by running the following command:
 ```
-npm run tetrachrome
+npm i tetrachrome
 ```
 2. Tetrachrome exports a router object named tetrachrome and a function named routeStack. The tetrachrome router object contains an isolated instance of customized Morgan NPM middleware and creates a route (`/tetrachrome`) where the application is served. The routeStack function contains logic that parses through the express to find out which endpoints are available in the user's application.
 
