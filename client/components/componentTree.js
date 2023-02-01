@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Tree from 'react-d3-tree';
-import styles from '../stylesheets/_tree3.scss';
+import '../stylesheets/custom-tree.scss';
 
 const ComponentTree = ({ rootNode }) => {
 
@@ -85,8 +85,14 @@ const ComponentTree = ({ rootNode }) => {
   }, []);
 
   return (
-    <div id="treeWrapper" style={{ width: '50em', height: '20em' }}>
-      <Tree data={treeObj} />
+    <div id="treeWrapper">
+      <Tree data={treeObj}
+      rootNodeClassName="node__root"
+      branchNodeClassName="node__branch"
+      leafNodeClassName="node__leaf"
+      orientation="vertical"
+      depthFactor={50}
+      hasInteractiveNodes={true} />
     </div>        
   )
 };

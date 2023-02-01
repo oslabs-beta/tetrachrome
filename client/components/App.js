@@ -48,6 +48,7 @@ function App() {
   return (
     <>
       <Nav2 />
+      <div id="tetrachrome">
       <div id="container">
         <MainContainer />
       </div>
@@ -71,6 +72,7 @@ function App() {
           />
           <Route path="/blueprint/docs" element={<Docs />} />
         </Routes>
+      </div>
       </div>
     </>
   );
