@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Tree from 'react-d3-tree';
-import styles from '../stylesheets/_tree3.scss';
 
 const ComponentTree = ({ rootNode }) => {
 
