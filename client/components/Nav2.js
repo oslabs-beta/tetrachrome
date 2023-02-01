@@ -90,6 +90,9 @@ function Nav2() {
                   <Typography textAlign="center"><Link to="/blueprint/backend">Backend</Link></Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center"><Link to="/blueprint/metrics">Metrics</Link></Typography>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center"><Link to="/blueprint/gettingstarted">Getting Started</Link></Typography>
                 </MenuItem>
             </Menu>
@@ -124,6 +127,11 @@ function Nav2() {
                 onClick={handleCloseNavMenu}
                 sx={{ color: 'white', textDecoration: 'none' }}
               >Backend</Button></Link>
+            <Link to="/blueprint/metrics">
+              <Button className="navButton"
+                onClick={handleCloseNavMenu}
+                sx={{ color: 'white', textDecoration: 'none' }}
+              >Metrics</Button></Link>
             <Link to="/blueprint/gettingstarted">
               <Button className="navButton"
                 sx={{ color: 'white', textDecoration: 'none' }}
