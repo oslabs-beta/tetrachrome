@@ -44,7 +44,7 @@ module.exports = {
       directory: path.resolve(__dirname, './build')
     },
     proxy: {
-      '/blueprint/**': 'http://localhost:5000',
+      '/tetrachrome/**': 'http://localhost:5000',
     }
   },
 };

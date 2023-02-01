@@ -24,52 +24,9 @@ const io = new Server(3030, {
 
 io.of('/log').on("connection", (socket) => {
   console.log("socket connection established");
-  //send route stack to blueprint frontend
   socket.emit("route stack", routes);
-  // socket.on("log", function(data){
-  //   console.log(data);
-  //   // trying to send the log data from winston to blueprint frontend
-  //   // but this is not working here
-  //   socket.emit('winstonlog', data);
-  // });
+
 });
-
-/**
- * winston logger
- */
-
-// const logger = winston.createLogger({
-//   level: 'http',
-//   format: combine(
-//     timestamp({
-//       format: 'YYYY-MM-DD hh:mm:ss.SSS A',
-//     }),
-//     json()
-//   ),
-//   transports: [
-//     new winston.transports.Console(),
-//     new winston.transports.File({
-//       filename: 'logs.log',
-//     }),
-//     new winston.transports.SocketIO({
-//       host: 'localhost',
-//       port: 3030,
-//       secure: false,
-//       reconnect: true,
-//       namespace: 'log',
-//       log_topic:'log'
-//     }),
-//   ],
-// });
-
-// router.use(
-//   "/blueprint",
-//   express.static(path.resolve(__dirname, "../Build"))
-// );
-// app.use(
-//   "/blueprint",
-//   express.static(path.resolve(__dirname, "../Blueprint/Build"))
-// );
 
 router
   .use(
@@ -86,17 +43,12 @@ router
       },
       {
         stream: {
-          // write: (message) => {
-          //   const data = JSON.parse(message);
-          //   logger.http("incoming-request", data);
-          // },
-          //stream morgan logs and send it to the blueprint frontend
           write: (message) => io.of("/log").emit("log", message)
         },
       }
     )
   )
-  .use("/blueprint", express.static(path.resolve(__dirname, "./build")));
+  .use("/tetrachrome", express.static(path.resolve(__dirname, "./build")));
 // .listen(3000, (err, req, res) => {
 //   let logMsg = "";
 //   req.on("data", function (data) {
@@ -117,7 +69,7 @@ const routeStack = (app) => {
 };
 
 exports.routeStack = routeStack;
-module.exports.blueprint = router;
+module.exports.tetrachrome = router;
 
 function print(path, layer) {
   if (layer.route) {

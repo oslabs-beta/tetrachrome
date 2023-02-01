@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ComponentTree from '../components/componentTree';
+import ComponentTree from '../components/ComponentTree';
 
 const FrontendContainer = ({ frame }) => {
   // get document of app-frame

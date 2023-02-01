@@ -19,6 +19,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
+<<<<<<< HEAD
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
@@ -38,6 +39,13 @@ const BackendContainer = ({ routes }) => {
   //     routeList.push(<p>{`method: ${routes[i].method}, path: ${routes[i].path}`}</p>)
   // }
 
+=======
+  const routeList = [];
+  for (let i = 0; i < routes.length; i++) {
+      routeList.push(<p>{`method: ${routes[i].method}, path: ${routes[i].path}`}</p>)
+  }
+  
+>>>>>>> 3e17b4d345331202c61b7b3395923bb0461a269a
   return (
     // <>
     //   <h2>User Route Stack: </h2>
