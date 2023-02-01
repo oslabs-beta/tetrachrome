@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  font-family: $bodyFont;
+  font-family: $body-font;
 }
 
 // #sideNav {
@@ -25,32 +25,57 @@
 // }
 
 #topNav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 50px;
-  padding-right: 35px;
-  background-color: black;
+  // display: flex;
+  // justify-content: flex-end;
+  // align-items: center;
+  // height: 50px;
+  // padding-right: 35px;
+  background-color: $nav-background-color;
 }
 
-#topNav ul li {
-  list-style: none;
-  display: inline-block;
-  padding-right: 15px;
-}
-
-.navButton a {
+.navButton, .navButton:a {
   padding: 5px;
-  font-weight: bold;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
+  font-weight: 300;
+  justify-content: end;
 }
 
-#container {
-  // width: 85%;
-  height: 50%;
-  padding: 15px;
-  border: 1px solid orange;
+.tetra {
+  color: $accent-color;
+  font-family: $header-font;
+}
+// #topNav ul li {
+//   list-style: none;
+//   display: inline-block;
+//   padding-right: 15px;
+// }
+
+// .navButton a {
+//   padding: 5px;
+//   font-weight: bold;
+//   text-decoration: none;
+//   color: white;
+// }
+
+// #container {
+//   // width: 85%;
+//   height: 50%;
+//   padding: 15px;
+//   border: 1px solid orange;
+
+//   // display: grid;
+//   // grid-template-columns: 1fr 1fr 1fr 1fr;
+//   // grid-template-rows: auto;
+//   // grid-template-areas: 
+//   //   "frame frame frame frame"
+//   //   "frontend frontend backend backend"
+// }
+// #side-container {
+//   // width: 85%;
+//   padding: 15px;
+//   height: 50%;
+//   border: 1px solid green;
 
   // display: grid;
   // grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -58,30 +83,17 @@
   // grid-template-areas: 
   //   "frame frame frame frame"
   //   "frontend frontend backend backend"
-}
-#side-container {
-  // width: 85%;
-  padding: 15px;
-  height: 50%;
-  border: 1px solid green;
+// }
 
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr 1fr;
-  // grid-template-rows: auto;
-  // grid-template-areas: 
-  //   "frame frame frame frame"
-  //   "frontend frontend backend backend"
-}
+// #frontend-container {
+//   padding: 15px;
+//   border: 1px solid red;
+// }
 
-#frontend-container {
-  padding: 15px;
-  border: 1px solid red;
-}
-
-#backend-container {
-  padding: 15px;
-  border: 1px solid blue;
-}
+// #backend-container {
+//   padding: 15px;
+//   border: 1px solid blue;
+// }
 
 
 
