@@ -3,33 +3,7 @@
   font-family: $body-font;
 }
 
-// #sideNav {
-//   // display: flex;
-//   // flex-direction: column;
-//   position: absolute;
-//   float: left;
-//   min-width: 15vw;
-//   height: 100%;
-//   background-color: black;
-// }
-
-// #sideNav ul {
-//   padding: 0;
-// }
-
-// #sideNav ul li {
-//   display: flex;
-//   list-style: none;
-//   justify-content: center;
-//   margin: 0;
-// }
-
 #topNav {
-  // display: flex;
-  // justify-content: flex-end;
-  // align-items: center;
-  // height: 50px;
-  // padding-right: 35px;
   background-color: $nav-background-color;
 }
 
@@ -44,82 +18,15 @@
 .tetra {
   color: $accent-color;
   font-family: $header-font;
+  font-weight: 500;
 }
-// #topNav ul li {
-//   list-style: none;
-//   display: inline-block;
-//   padding-right: 15px;
-// }
 
-// .navButton a {
-//   padding: 5px;
-//   font-weight: bold;
-//   text-decoration: none;
-//   color: white;
-// }
+h2 {
+  color: $page-header-font-color;
+  font-family: $header-font;
+  font-size: 24px;
+}
 
-// #container {
-//   // width: 85%;
-//   height: 50%;
-//   padding: 15px;
-//   border: 1px solid orange;
-
-//   // display: grid;
-//   // grid-template-columns: 1fr 1fr 1fr 1fr;
-//   // grid-template-rows: auto;
-//   // grid-template-areas: 
-//   //   "frame frame frame frame"
-//   //   "frontend frontend backend backend"
-// }
-// #side-container {
-//   // width: 85%;
-//   padding: 15px;
-//   height: 50%;
-//   border: 1px solid green;
-
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr 1fr;
-  // grid-template-rows: auto;
-  // grid-template-areas: 
-  //   "frame frame frame frame"
-  //   "frontend frontend backend backend"
-// }
-
-// #frontend-container {
-//   padding: 15px;
-//   border: 1px solid red;
-// }
-
-// #backend-container {
-//   padding: 15px;
-//   border: 1px solid blue;
-// }
-
-
-
-// TREE CSS
-// body {
-//   text-align: center;
-// }
-
-// svg {
-//   margin-top: 32px;
-//   border: 1px solid #aaa;
-// }
-
-// .person rect {
-//   fill: #fff;
-//   stroke: steelblue;
-//   stroke-width: 1px;
-// }
-
-// .person {
-//   font: 14px sans-serif;
-//   cursor: pointer;
-// }
-
-// .link {
-//   fill: none;
-//   stroke: #ccc;
-//   stroke-width: 1.5px;
-// }
+#wrapper {
+  padding: 15px;
+}
