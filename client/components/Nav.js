@@ -30,7 +30,8 @@ function Nav() {
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: '#293462' }}>
+    // change the color of nav bar
+    <AppBar position="static" sx={{ bgcolor: '#28045B' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -41,7 +42,7 @@ function Nav() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'April Fatface',
+              fontFamily: 'Unica One',
               fontWeight: 2500,
               fontSize: 36,
               // letterSpacing: '.3rem',
@@ -79,7 +80,7 @@ function Nav() {
                   <Typography textAlign="center"><Link to="/tetrachrome/backend">Backend</Link></Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"><Link to="/tetrachrome/metrics">Metrics</Link></Typography>
+                  <Typography textAlign="center"><Link to="/tetrachrome/logs">Logs</Link></Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center"><Link to="/tetrachrome/gettingstarted">Getting Started</Link></Typography>
@@ -95,7 +96,7 @@ function Nav() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'April Fatface',
+              fontFamily: 'Inter',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
@@ -116,11 +117,11 @@ function Nav() {
                 onClick={handleCloseNavMenu}
                 sx={{ color: 'white', textDecoration: 'none' }}
               >Backend</Button></Link>
-            <Link to="/tetrachrome/metrics">
+            <Link to="/tetrachrome/logs">
               <Button className="navButton"
                 onClick={handleCloseNavMenu}
                 sx={{ color: 'white', textDecoration: 'none' }}
-              >Metrics</Button></Link>
+              >Logs</Button></Link>
             <Link to="/tetrachrome/gettingstarted">
               <Button className="navButton"
                 sx={{ color: 'white', textDecoration: 'none' }}

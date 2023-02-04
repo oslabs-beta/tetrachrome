@@ -62,7 +62,7 @@ function App() {
             element={<BackendContainer routes={routesStack} />}
           />
           <Route
-            path="/tetrachrome/metrics"
+            path="/tetrachrome/logs"
             element={<MetricsContainer logList={logList} />}
           />
           <Route

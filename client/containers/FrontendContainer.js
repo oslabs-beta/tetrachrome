@@ -18,7 +18,6 @@ const FrontendContainer = ({ frame }) => {
 
   return (
     <>
-      <h2>React Component Tree</h2>
       <ComponentTree rootNode={rootNode} />
     </>
   );
