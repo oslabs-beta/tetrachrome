@@ -19,8 +19,14 @@
   color: $accent-color;
   font-family: $header-font;
   font-weight: 500;
+  font-weight: 500;
 }
 
+h2 {
+  color: $page-header-font-color;
+  font-family: $header-font;
+  font-size: 24px;
+}
 h2 {
   color: $page-header-font-color;
   font-family: $header-font;
