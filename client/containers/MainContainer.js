@@ -10,7 +10,7 @@ function MainContainer() {
       <iframe id="frame"
         src='http://localhost:8080'
         width="100%"
-        height="500px"
+        height="100%"
         sandbox="allow-same-origin allow-scripts"
       />
     </>
