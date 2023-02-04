@@ -1,24 +1,23 @@
 {
-  "name": "blueprint",
-  "version": "1.0.0",
+  "name": "tetrachrome",
+  "version": "1.0.4",
   "description": "",
-  "main": "index.js",
+  "main": "function.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server/server.js & webpack-dev-server --open",
-    "open": "open -na \"Google Chrome\" http://localhost:5000 --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security --disable-site-isolation-trials",
     "prod": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oslabs-beta/blueprint.git"
+    "url": "git+https://github.com/oslabs-beta/tetrachrome.git"
   },
-  "author": "",
+  "author": "Judy Marco Risa Terry",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/oslabs-beta/blueprint/issues"
+    "url": "https://github.com/oslabs-beta/tetrachrome/issues"
   },
-  "homepage": "https://github.com/oslabs-beta/blueprint#readme",
+  "homepage": "https://github.com/oslabs-beta/tetrachrome#readme",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
