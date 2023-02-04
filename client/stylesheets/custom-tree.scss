@@ -3,18 +3,20 @@ div#treeWrapper {
     border: double;
     height: 100%;
     align-items:center;
-    background-color: #c5c7ee;
+    background-color: #d0b9db;
     background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
     background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
 .node__root > circle {
-    fill: rgba(255, 179, 0, 0.9);
+    fill: rgba(230, 95, 217, 0.975);
+    font-family: 'Inter';
 }
   
 .node__branch > circle {
-    fill: rgb(23, 16, 93);
+    fill: rgb(80, 38, 136);
+    font-family: 'Inter';
 }
   
 .node__leaf > circle {
