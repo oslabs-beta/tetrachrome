@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
-import Nav2 from "./Nav2";
+import Nav from "./Nav";
 import MainContainer from "../containers/MainContainer";
 import FrontendContainer from "../containers/FrontendContainer";
 import BackendContainer from "../containers/BackendContainer";
 import MetricsContainer from "../containers/MetricsContainer";
 import GettingStarted from "./GettingStarted";
-import Docs from "./Docs";
 import { io } from "socket.io-client";
 import immer from "immer";
 
@@ -47,30 +46,29 @@ function App() {
 
   return (
     <>
-      <Nav2 />
-      <div id="tetrachrome">
+      <Nav />
+      <div id="wrapper">
       <div id="container">
         <MainContainer />
       </div>
       <div id="side-container">
         <Routes>
           <Route
-            path="/blueprint/frontend"
+            path="/tetrachrome/frontend"
             element={<FrontendContainer frame={frame} />}
           />
           <Route
-            path="/blueprint/backend"
+            path="/tetrachrome/backend"
             element={<BackendContainer routes={routesStack} />}
           />
           <Route
-            path="/blueprint/metrics"
+            path="/tetrachrome/metrics"
             element={<MetricsContainer logList={logList} />}
           />
           <Route
-            path="/blueprint/gettingstarted"
+            path="/tetrachrome/gettingstarted"
             element={<GettingStarted />}
           />
-          <Route path="/blueprint/docs" element={<Docs />} />
         </Routes>
       </div>
       </div>
