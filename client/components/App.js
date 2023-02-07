@@ -49,7 +49,7 @@ function App() {
       <Nav />
       <div id="wrapper">
       <div id="container">
-        <div class="subtitle user"> Your Application</div>
+        <div class="subtitle user"> &#x1F4BB;Your Application</div>
         <MainContainer />
       </div>
       <div id="side-container">

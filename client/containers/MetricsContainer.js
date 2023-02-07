@@ -29,7 +29,7 @@ const MetricsContainer = ({ logList }) => {
   return (
 
     <div style={{ height: 400, width: '100%', fontFamily: 'Inter' }}>
-      <div class="subtitle tc">HTTP Logs</ div>
+      <div class="subtitle tc">&#x1F5D2;HTTP Logs</ div>
       <DataGrid
         rows={logs}
         columns={columns}
