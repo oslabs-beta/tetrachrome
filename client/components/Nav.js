@@ -101,7 +101,7 @@ function Nav() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-              textAlign: 'center'
+              textAlign: 'left'
             }}
           >
             <span className="tetra">tetra</span>chrome

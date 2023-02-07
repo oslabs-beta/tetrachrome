@@ -41,8 +41,6 @@ const ComponentTree = ({ rootNode }) => {
       parent.children.push(tempObj);
     }
 
-    console.log('this is fiber', fiber);
-
     if (fiber.child && fiber.child.elementType !== null && (fiber.child.tag === 0 || fiber.child.child !== null )) {
       if (tempObj !== undefined) {
         parent = tempObj;
