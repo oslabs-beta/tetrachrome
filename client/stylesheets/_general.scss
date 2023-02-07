@@ -38,6 +38,7 @@ h2 {
   height: 100%;
   height: 250em;
   padding: 15px;
+  background-color: rgba(246, 239, 248, 0.921);
 }
 #container {
   width: 40%;
@@ -51,4 +52,33 @@ h2 {
   height: 100%;
   overflow-x:hidden;
   overflow-y:auto;
+}
+
+.subtitle {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  font-family: 'Unica One';
+  font-size: 24px;
+  text-align: center;
+}
+
+.user
+{
+	border-color: #d639bf;
+	background-color: rgba(218, 112, 221, 0.1); 
+}
+
+.tc
+{
+	border-color: #6b199b;
+	background-color: rgba(129, 88, 157, 0.1); 
+}
+
+.picture
+{
+	width: 15px; 
+	padding-right: 10px;
 }

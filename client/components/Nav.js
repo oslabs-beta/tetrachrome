@@ -31,7 +31,7 @@ function Nav() {
 
   return (
     // change the color of nav bar
-    <AppBar position="static" sx={{ bgcolor: '#28045B' }}>
+    <AppBar position="static" sx={{ bgcolor: '#ad94d1' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
