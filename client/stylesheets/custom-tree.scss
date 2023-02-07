@@ -18,7 +18,12 @@ div#treeWrapper {
     fill: rgb(80, 38, 136);
     font-family: 'Inter';
 }
-  
+
+// font of node name
+.rd3t-label__title {
+    font-family: 'Inter';
+}
+
 .node__leaf > circle {
     fill: green;
     /* Let's also make the radius of leaf nodes larger */
