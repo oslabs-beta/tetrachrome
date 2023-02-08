@@ -11,9 +11,9 @@ const ComponentTree = ({ rootNode }) => {
 
   let parent = {
     name: rootNode.name || 'root node',
-    attributes: {
-      type: rootNode.elementType,
-    },
+    // attributes: {
+    //   /* add any attributes you may want to keep track of*/
+    // },
     children: [],
     mom: null
   };
@@ -32,15 +32,14 @@ const ComponentTree = ({ rootNode }) => {
     if ((fiber.name !== null || fiber.tag === 0) && fiber.type.prototype !== undefined)  {
       tempObj = {
         name: fiber.type.name || '',
-        attributes: {
-          type: fiber.elementType,
-        },
+        // attributes: {
+        //   /* add any attributes you may want to keep track of*/
+        // },
         children: [],
         mom: parent
       };
       parent.children.push(tempObj);
     }
-
 
     if (fiber.child && fiber.child.elementType !== null && (fiber.child.tag === 0 || fiber.child.child !== null )) {
       if (tempObj !== undefined) {
@@ -92,7 +91,8 @@ const ComponentTree = ({ rootNode }) => {
       leafNodeClassName="node__leaf"
       orientation="vertical"
       depthFactor={50}
-      hasInteractiveNodes={true} />
+      hasInteractiveNodes={true}
+      translate={{ x: 500, y: 100 }} />
     </div>        
   )
 };

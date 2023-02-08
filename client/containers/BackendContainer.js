@@ -42,11 +42,12 @@ const BackendContainer = ({ routes }) => {
 
   return (
     <TableContainer component={Paper}>
+      <div class="subtitle tc">&#x1F310; Backend Routes</ div>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>METHOD</StyledTableCell>
-            <StyledTableCell align="right">PATH</StyledTableCell>
+            <StyledTableCell className='tabletop'>METHOD</StyledTableCell>
+            <StyledTableCell className='tabletop' align="right">PATH</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
