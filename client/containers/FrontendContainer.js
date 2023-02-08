@@ -18,7 +18,7 @@ const FrontendContainer = ({ frame }) => {
 
   return (
     <>
-      <div class="subtitle tc">&#x1F333;Component Tree Map</ div>
+      <div class="subtitle tc">&#x1F333; Component Tree Map</ div>
       <ComponentTree rootNode={rootNode} />
     </>
   );
