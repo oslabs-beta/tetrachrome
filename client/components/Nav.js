@@ -107,26 +107,29 @@ function Nav() {
             <span className="tetra">tetra</span>chrome
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', textAlign: 'center' } }}>
-          <Link to="/tetrachrome/frontend">
+          <Link to="/tetrachrome/frontend" style={{textDecoration: 'none' }}>
               <Button className="navButton"
                 onClick={handleCloseNavMenu}
-                sx={{ color: 'white', textDecoration: 'none' }}
+                sx={{ color: 'white'}}
               >Frontend</Button></Link>
-            <Link to="/tetrachrome/backend">
+            <Link to="/tetrachrome/backend" style={{textDecoration: 'none' }}>
               <Button className="navButton"
                 onClick={handleCloseNavMenu}
-                sx={{ color: 'white', textDecoration: 'none' }}
+                sx={{ color: 'white'}}
               >Backend</Button></Link>
-            <Link to="/tetrachrome/logs">
+            <Link to="/tetrachrome/logs" style={{textDecoration: 'none' }}>
               <Button className="navButton"
                 onClick={handleCloseNavMenu}
-                sx={{ color: 'white', textDecoration: 'none' }}
+                sx={{ color: 'white'}}
               >Logs</Button></Link>
-            <Link to="/tetrachrome/gettingstarted">
+            {/* <Link to="https://github.com/oslabs-beta/tetrachrome#readme"> */}
               <Button className="navButton"
-                sx={{ color: 'white', textDecoration: 'none' }}
+                href="https://github.com/oslabs-beta/tetrachrome#readme"
+                sx={{ color: 'white'}}
+                style={{textDecoration: 'none' }}
                 onClick={handleCloseNavMenu}
-              >Getting Started</Button></Link>
+              >Getting Started</Button>
+              {/* </Link> */}
           </Box>
         </Toolbar>
       </Container>
