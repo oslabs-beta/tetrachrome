@@ -91,7 +91,8 @@ const ComponentTree = ({ rootNode }) => {
       leafNodeClassName="node__leaf"
       orientation="vertical"
       depthFactor={50}
-      hasInteractiveNodes={true} />
+      hasInteractiveNodes={true}
+      translate={{ x: 500, y: 100 }} />
     </div>        
   )
 };
