@@ -54,33 +54,28 @@ h2 {
 }
 
 .subtitle {
-  border: 1px solid;
   border-radius: 5px;
   padding: 10px;
   margin: 5px 0;
   width: 100%;
   font-family: 'Unica One';
+  font-weight: 700;
+  color: white;
   font-size: 24px;
   text-align: center;
 }
 
 .user
 {
-	border-color: #d639bf;
-	background-color: rgba(218, 112, 221, 0.1); 
+  background: rgb(11,7,15);
+  background: radial-gradient(circle, rgba(11,7,15,1) 0%, rgba(9,9,121,1) 73%, rgba(83,12,113,1) 100%);
 }
 
 // styling for tetrachrome components labels
 .tc
 {
-	border-color: #6b199b;
-	background-color: rgba(129, 88, 157, 0.1); 
-}
-
-.picture
-{
-	width: 15px; 
-	padding-right: 10px;
+  background: rgb(63,76,251);
+  background: radial-gradient(circle, rgba(63,76,251,1) 0%, rgba(219,70,252,1) 100%);  
 }
 
 .css-n4ae6w {

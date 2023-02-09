@@ -11,10 +11,10 @@ const FrontendContainer = ({ frame }) => {
   allNodes.forEach(node => {
     if (node._reactRootContainer) rootNode = node._reactRootContainer._internalRoot.current;
   });  
-  
-  useEffect(() => {
-    console.log('rootNode --> ', rootNode);
-  }, []);
+  // uncomment below to identify rootnode
+  // useEffect(() => {
+  //   console.log('rootNode --> ', rootNode);
+  // }, []);
 
   return (
     <>
