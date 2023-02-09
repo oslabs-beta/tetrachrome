@@ -3,9 +3,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const morgan = require("morgan");
-// const winston = require("winston");
-// const { combine, timestamp, json } = winston.format;
-// require("winston-socket.io");
+
 
 
 //we are going to save the route stack in this variable
@@ -23,7 +21,6 @@ const io = new Server(3030, {
 });
 
 io.of('/log').on("connection", (socket) => {
-  console.log("socket connection established");
   socket.emit("route stack", routes);
 
 });
@@ -49,22 +46,12 @@ router
     )
   )
   .use("/tetrachrome", express.static(path.resolve(__dirname, "./build")));
-// .listen(3000, (err, req, res) => {
-//   let logMsg = "";
-//   req.on("data", function (data) {
-//     logMsg += data.toString();
-//   });
-//   req.on("end", function (data) {
-//     io.emit("logger", logMsg);
-//   });
-// });
+
 
 const routeStack = (app) => {
   setImmediate(() => {
-  console.log("about to send route stack");
   //this method will grab the user route stack and store it in the routes array
   app._router.stack.forEach(print.bind(null, []));
-  // console.log(routes);
   })
 };
 

@@ -36,6 +36,8 @@ Tetrachrome is a full-stack visualization tool for developers using React and Ex
     },
   }
 ```
+4. Run your application and go to the route /tetrachrome. You will see the Tetrachrome navigation bar at the top of the page and your application running below that navigation bar. When you click on the Frontend option on the navigation bar, our algorithm will parse your React Fiber Tree and display the tree on the right side of the screen below the navigation bar. Clicking the Backend option menu will show a table of the available paths and their methods. The Logs option creates a table of all the HTTP requests that are hitting your server. Be sure to interact with your application on the left side of the page in order to see all your HTTP requests in real time.
+
 ## Authors
 * Judy Wu
 * Marco Xu
