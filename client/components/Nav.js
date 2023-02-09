@@ -51,7 +51,7 @@ function Nav() {
               textAlign: 'center'
             }}
           >
-            <span className="tetra">tetra</span>chrome
+            <span className="tetra">Tetra</span>chrome
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -104,7 +104,7 @@ function Nav() {
               textAlign: 'left'
             }}
           >
-            <span className="tetra">tetra</span>chrome
+            <span className="tetra">Tetra</span>chrome
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', textAlign: 'center' } }}>
           <Link to="/tetrachrome/frontend" style={{textDecoration: 'none' }}>
