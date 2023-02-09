@@ -19,14 +19,13 @@ const ComponentTree = ({ rootNode }) => {
   };
   treeArr.push(parent);
 
-  useEffect(() => {
-    console.log('treeArr --> ', treeArr);
-  }, []);
+  // uncomment below to see the entire array 
+  // useEffect(() => {
+  //   console.log('treeArr --> ', treeArr);
+  // }, []);
 
   // track + perform work on fiber node
   const performUnitOfWork = (fiber, parent) => {
-    console.log('inside performUnitOfWork');
-
     let tempObj;
 
     if ((fiber.name !== null || fiber.tag === 0) && fiber.type.prototype !== undefined)  {
@@ -61,12 +60,14 @@ const ComponentTree = ({ rootNode }) => {
   }
   // traverse component tree
   const traverse = (nextNode, parent = treeArr[0]) => {
-    console.log('inside traverse');
+    // uncomment below to check if traverse has started 
+    // console.log('inside traverse');
     
     while (nextNode) {
       const output = performUnitOfWork(nextNode, parent);
       if (!output) {
-        console.log('End of traversal')
+        // uncomment below to check if traverse has concluded 
+        // console.log('End of traversal')
         setTreeObj(Object.assign({}, treeArr[0]));
         break;
       }
