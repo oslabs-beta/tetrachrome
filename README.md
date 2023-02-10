@@ -27,7 +27,7 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
   app.use(tetrachrome);
   routeStack(app);
 ```
-3. Since the commands above serves the Tetrachrome application, if you are using webpack or any other module bundler, you will need to add this server side route (/tetrachrome) to your proxy configuration (typically, your webpack.js file) in order to access the Tetrachrome application on the client side as shown below:
+3. Since the commands above serves the Tetrachrome application, if you are using webpack or any other module bundler, you will need to add this server side route (`/tetrachrome`) to your proxy configuration (typically, your webpack.js file) in order to access the Tetrachrome application on the client side as shown below:
 ```
   proxy: {
     '/tetrachrome': {
@@ -36,7 +36,7 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
     },
   }
 ```
-4. Run your application and navigate to the route /tetrachrome in your browser. You will see the Tetrachrome navigation bar at the top of the page and your application running below.
+4. Run your application and navigate to the route `/tetrachrome` in your browser. You will see the Tetrachrome navigation bar at the top of the page and your application running below.
 * Frontend - display of your application components using our algorithm parsing through your React Fiber Tree
 * Backend - display of available paths and their methods
 * Logs - tabular display of all HTTP requests that are hitting your server
