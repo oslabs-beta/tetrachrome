@@ -1,15 +1,17 @@
 # Tetrachrome
 
-Tetrachrome is a full-stack visualization tool for developers using React and Express that
-* parses through the React Fiber Tree and generates the visualization of the tree using D3
-* parses through the Express object and creates a table of all the routes and their methods
-* captures the HTTP requests and creates a table of their methods, endpoints, statuses, content lengths, response times, and timestamps
+Tetrachrome is an open source developer tool for developers to visualize and analyze the fullstack of their applications using React and Node.js / Express.
+
+## Features:
+* Parses through React Fiber Tree and generates the visualization of the tree using D3.js
+* Parses through Express object and creates a table of all the routes and the associated methods
+* Captures HTTP request activity and creates a table of associated methods, endpoints, statuses, content lengths, response times, and timestamps
 
 ## Built With
 * Javascript
-* Node/Express
+* Node.js / Express
 * React
-* D3
+* D3.js
 * Webpack
 * Socket-io
 * Morgan
