@@ -21,9 +21,7 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
 ```
   npm i tetrachrome
 ```
-2. The application exports a router object named tetrachrome and a function named routeStack. The tetrachrome router object contains an isolated instance of customized Morgan (GitHub, NPM) middleware and creates a route (`/tetrachrome`) where the application is served. The routeStack function contains logic that parses through Express to determine which endpoints are available in the user's application.
-
-Add Tetrachrome into the backend (often your server.js file) of your application:
+2. The application exports a router object named tetrachrome and a function named routeStack. The tetrachrome router object contains an isolated instance of customized Morgan (GitHub, NPM) middleware and creates a route (`/tetrachrome`) where the application is served. The routeStack function contains logic that parses through Express to determine which endpoints are available in the user's application. Add Tetrachrome into the backend (often your server.js file) of your application:
 ```
   const { tetrachrome, routeStack } = require('tetrachrome');
   app.use(tetrachrome);
