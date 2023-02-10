@@ -1,4 +1,4 @@
-# Tetrachrome
+# 🔮 Tetrachrome 
 
 Tetrachrome is an open source developer tool for developers to visualize and analyze the fullstack of their applications using React and Node.js / Express.
 
@@ -44,7 +44,16 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
 Be sure to interact with your application on the left side of the page in order to see all your HTTP requests in real time!
 
 ## 🫰🏼 Team
-* Risa Ochiai | [LinkedIn]([url](https://www.linkedin.com/in/risaochiai/)]) | [GitHub]([url](https://github.com/risa-10))
-* Terry Park | [LinkedIn]([url](https://www.linkedin.com/in/terryparkjh/)) | [GitHub]([url](https://github.com/tjpark95))
-* Judy Wu | [LinkedIn]([url](https://www.linkedin.com/in/judywuxingyi/)) | [GitHub]([url](https://github.com/judywuxingyi))
-* Marco Xu | [LinkedIn]([url](https://www.linkedin.com/in/marco-xu-lin/)) | [GitHub]([url](https://github.com/marcoxulin))
+| Name                                                                                                                            | Social                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Judy Wu | [![LinkedIn]](https://www.linkedin.com/in/judywuxingyi/) [![GitHub]](https://github.com/judywuxingyi) |
+| Marco Xu | [![LinkedIn]](https://www.linkedin.com/in/marco-xu-lin/) [![GitHub]](https://github.com/marcoxulin) |
+| Risa Ochiai | [![LinkedIn]](https://www.linkedin.com/in/risaochiai/) [![GitHub]](https://github.com/risa-10) |
+| Terry Park | [![LinkedIn]](https://www.linkedin.com/in/terryparkjh/) [![GitHub]](https://github.com/tjpark95) |
+
+## 📬 Contact
+[![LinkedIn]](https://www.linkedin.com/company/tetrachrome-open-source/)
+
+[LinkedIn]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
+[GitHub]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
+
