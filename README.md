@@ -2,12 +2,12 @@
 
 Tetrachrome is an open source developer tool for developers to visualize and analyze the fullstack of their applications using React and Node.js / Express.
 
-## Features:
+## 🔑 Features:
 * Parses through React Fiber Tree and generates the visualization of the tree using D3.js
 * Parses through Express object and creates a table of all the routes and the associated methods
 * Captures HTTP request activity and creates a table of associated methods, endpoints, statuses, content lengths, response times, and timestamps
 
-## Built with:
+## 🧰 Built with:
 * Javascript
 * Node.js / Express
 * React
@@ -16,7 +16,7 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
 * Socket-io
 * Morgan
 
-## Installation
+## 🛠 Installation
 1. Assuming you've already installed Node.js and npm, install the Tetrachrome package by running the following command:
 ```
   npm i tetrachrome
@@ -43,7 +43,7 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
 
 Be sure to interact with your application on the left side of the page in order to see all your HTTP requests in real time!
 
-## Authors
+## 🫰🏼 Team
 * Judy Wu
 * Marco Xu
 * Risa Ochiai
