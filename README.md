@@ -7,7 +7,7 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
 * Parses through Express object and creates a table of all the routes and the associated methods
 * Captures HTTP request activity and creates a table of associated methods, endpoints, statuses, content lengths, response times, and timestamps
 
-## Built With
+## Built with:
 * Javascript
 * Node.js / Express
 * React
@@ -21,15 +21,15 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
 ```
   npm i tetrachrome
 ```
-2. Tetrachrome exports a router object named tetrachrome and a function named routeStack. The tetrachrome router object contains an isolated instance of customized Morgan NPM middleware and creates a route (`/tetrachrome`) where the application is served. The routeStack function contains logic that parses through the express to find out which endpoints are available in the user's application.
+2. The application exports a router object named tetrachrome and a function named routeStack. The tetrachrome router object contains an isolated instance of customized Morgan (GitHub, NPM) middleware and creates a route (`/tetrachrome`) where the application is served. The routeStack function contains logic that parses through Express to determine which endpoints are available in the user's application.
 
-    Following is an example of how to use Tetrachrome in your application:
+Add Tetrachrome into the backend (often your server.js file) of your application:
 ```
   const { tetrachrome, routeStack } = require('tetrachrome');
   app.use(tetrachrome);
   routeStack(app);
 ```
-3. Since the commands above serve the Tetrachrome application on the server side, if you are using Webpack or any other module bundler, you will need to add this server-side route (/tetrachrome) to your proxy configuration in order to access the Tetrachrome application on the client side.
+3. Since the commands above serves the Tetrachrome application, if you are using webpack or any other module bundler, you will need to add this server side route (/tetrachrome) to your proxy configuration (typically, your webpack.js file) in order to access the Tetrachrome application on the client side as shown below:
 ```
   proxy: {
     '/tetrachrome': {
@@ -38,7 +38,12 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
     },
   }
 ```
-4. Run your application and go to the route /tetrachrome. You will see the Tetrachrome navigation bar at the top of the page and your application running below that navigation bar. When you click on the Frontend option on the navigation bar, our algorithm will parse your React Fiber Tree and display the tree on the right side of the screen below the navigation bar. Clicking the Backend option menu will show a table of the available paths and their methods. The Logs option creates a table of all the HTTP requests that are hitting your server. Be sure to interact with your application on the left side of the page in order to see all your HTTP requests in real time.
+4. Run your application and navigate to the route /tetrachrome in your browser. You will see the Tetrachrome navigation bar at the top of the page and your application running below.
+* Frontend - display of your application components using our algorithm parsing through your React Fiber Tree
+* Backend - display of available paths and their methods
+* Logs - tabular display of all HTTP requests that are hitting your server
+
+Be sure to interact with your application on the left side of the page in order to see all your HTTP requests in real time!
 
 ## Authors
 * Judy Wu
