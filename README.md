@@ -44,7 +44,7 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
 Be sure to interact with your application on the left side of the page in order to see all your HTTP requests in real time!
 
 ## 🫰🏼 Team
-* Risa Ochiai | [LinkedIn]([url](https://www.linkedin.com/in/risaochiai/)) | [GitHub]([url](https://github.com/risa-10))
+* Risa Ochiai | [LinkedIn]([[url](https://www.linkedin.com/in/risaochiai/)]) | [GitHub]([url](https://github.com/risa-10))
 * Terry Park | [LinkedIn]([url](https://www.linkedin.com/in/terryparkjh/)) | [GitHub]([url](https://github.com/tjpark95))
 * Judy Wu | [LinkedIn]([url](https://www.linkedin.com/in/judywuxingyi/)) | [GitHub]([url](https://github.com/judywuxingyi))
 * Marco Xu | [LinkedIn]([url](https://www.linkedin.com/in/marco-xu-lin/)) | [GitHub]([url](https://github.com/marcoxulin))
