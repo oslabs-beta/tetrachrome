@@ -29,10 +29,10 @@ Tetrachrome is an open source developer tool for developers to visualize and ana
 ```
 3. Since the commands above serves the Tetrachrome application, if you are using webpack or any other module bundler, you will need to add this server side route (`/tetrachrome`) to your proxy configuration (typically, your webpack.js file) in order to access the Tetrachrome application on the client side as shown below:
 ```
-  proxy: {
-    '/tetrachrome': {
-      target: 'http://localhost:3000/',
-      secure: false,
+  "proxy": {
+    "/tetrachrome": {
+      "target": "http://localhost:3000/",
+      "secure": false
     },
   }
 ```
